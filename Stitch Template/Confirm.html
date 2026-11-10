@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="web_standard" name="shell-type"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-container-highest": "#dce2f7",
+            "on-primary-fixed": "#001551",
+            "on-tertiary-fixed": "#002115",
+            "surface-tint": "#2151da",
+            "on-tertiary": "#ffffff",
+            "background": "#f9f9ff",
+            "on-primary-fixed-variant": "#0039b5",
+            "surface-dim": "#d3daef",
+            "secondary-container": "#d5e4f8",
+            "surface": "#f9f9ff",
+            "primary-container": "#1d4ed8",
+            "secondary-fixed": "#d5e4f8",
+            "outline": "#747686",
+            "on-tertiary-container": "#89e7be",
+            "primary-fixed-dim": "#b7c4ff",
+            "outline-variant": "#c4c5d7",
+            "on-secondary-fixed-variant": "#3a4858",
+            "on-error": "#ffffff",
+            "error-container": "#ffdad6",
+            "on-secondary-fixed": "#0e1d2b",
+            "secondary-fixed-dim": "#b9c8db",
+            "tertiary-container": "#00694c",
+            "secondary": "#516070",
+            "on-surface": "#141b2b",
+            "inverse-primary": "#b7c4ff",
+            "on-primary-container": "#cad3ff",
+            "tertiary": "#004f38",
+            "on-error-container": "#93000a",
+            "inverse-surface": "#293040",
+            "inverse-on-surface": "#edf0ff",
+            "on-background": "#141b2b",
+            "on-secondary": "#ffffff",
+            "primary-fixed": "#dce1ff",
+            "surface-bright": "#f9f9ff",
+            "surface-variant": "#dce2f7",
+            "surface-container": "#e9edff",
+            "on-primary": "#ffffff",
+            "on-tertiary-fixed-variant": "#00513a",
+            "tertiary-fixed": "#97f5cc",
+            "on-surface-variant": "#434655",
+            "surface-container-lowest": "#ffffff",
+            "error": "#ba1a1a",
+            "surface-container-low": "#f1f3ff",
+            "primary": "#0037b0",
+            "tertiary-fixed-dim": "#7bd8b1",
+            "surface-container-high": "#e1e8fd",
+            "on-secondary-container": "#576676"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "gutter": "1.5rem",
+            "space-md": "1.25rem",
+            "space-xs": "0.375rem",
+            "margin": "2rem",
+            "gutter-mobile": "1rem",
+            "space-lg": "2rem",
+            "space-xl": "3rem",
+            "margin-mobile": "1rem",
+            "space-sm": "0.75rem"
+          },
+          fontFamily: {
+            "headline-md": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "label-md": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "body-xl": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "headline-lg-mobile": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "body-lg": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "label-sm": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "headline-xl-mobile": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "headline-sm": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "headline-lg": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "label-lg": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "headline-xl": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "body-md": ["Atkinson Hyperlegible Next", "sans-serif"]
+          },
+          fontSize: {
+            "headline-md": ["24px", { lineHeight: "32px", fontWeight: "700" }],
+            "label-md": ["18px", { lineHeight: "24px", fontWeight: "600" }],
+            "body-xl": ["22px", { lineHeight: "34px", fontWeight: "400" }],
+            "headline-lg-mobile": ["24px", { lineHeight: "32px", fontWeight: "700" }],
+            "body-lg": ["20px", { lineHeight: "30px", fontWeight: "400" }],
+            "label-sm": ["16px", { lineHeight: "22px", fontWeight: "600" }],
+            "headline-xl-mobile": ["30px", { lineHeight: "38px", letterSpacing: "-0.01em", fontWeight: "700" }],
+            "headline-sm": ["21px", { lineHeight: "28px", fontWeight: "700" }],
+            "headline-lg": ["30px", { lineHeight: "40px", fontWeight: "700" }],
+            "label-lg": ["20px", { lineHeight: "26px", fontWeight: "700" }],
+            "headline-xl": ["38px", { lineHeight: "48px", letterSpacing: "-0.01em", fontWeight: "700" }],
+            "body-md": ["18px", { lineHeight: "28px", fontWeight: "400" }]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    @layer base {
+      html, body { margin: 0; padding: 0; }
+      body { overscroll-behavior: none; }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { display: none; }
+
+    /* Custom staggered entrance animations */
+    @keyframes fadeInUpStagger {
+      from {
+        opacity: 0;
+        transform: translateY(22px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-stagger-1 { animation: fadeInUpStagger 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.05s both; }
+    .animate-stagger-2 { animation: fadeInUpStagger 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both; }
+    .animate-stagger-3 { animation: fadeInUpStagger 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both; }
+    .animate-stagger-4 { animation: fadeInUpStagger 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both; }
+    .animate-stagger-5 { animation: fadeInUpStagger 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.45s both; }
+    .animate-stagger-6 { animation: fadeInUpStagger 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.55s both; }
+    .animate-stagger-7 { animation: fadeInUpStagger 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.65s both; }
+
+    /* Progress bar subtle shimmer */
+    @keyframes progressShimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    .progress-bar-shimmer {
+      background: linear-gradient(90deg, #0037b0 0%, #2151da 50%, #0037b0 100%);
+      background-size: 200% 100%;
+      animation: progressShimmer 3.5s infinite linear;
+    }
+
+    /* Sound-wave ripple for Listen Page button */
+    @keyframes soundRipple {
+      0% { transform: scale(1); opacity: 0.6; }
+      50% { transform: scale(1.15); opacity: 0.2; }
+      100% { transform: scale(1); opacity: 0.6; }
+    }
+    .listen-btn:hover .sound-wave-icon {
+      animation: soundRipple 1.2s infinite ease-in-out;
+    }
+
+    /* Floating helpline button & pulsating live beacon */
+    @keyframes gentleFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+    .floating-help-btn {
+      animation: gentleFloat 4s ease-in-out infinite;
+    }
+    @keyframes pulseBeacon {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(151, 245, 204, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(151, 245, 204, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(151, 245, 204, 0); }
+    }
+    .pulse-beacon {
+      animation: pulseBeacon 2s infinite;
+    }
+
+    /* Primary CTA glow pulse */
+    .pay-btn-glow {
+      box-shadow: 0 8px 24px -4px rgba(0, 79, 56, 0.45);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .pay-btn-glow:hover {
+      box-shadow: 0 14px 32px -4px rgba(0, 79, 56, 0.6), 0 0 0 3px rgba(0, 105, 76, 0.25);
+      transform: translateY(-2px);
+    }
+    .pay-btn-glow:active {
+      transform: scale(0.98) translateY(0);
+      box-shadow: 0 4px 12px rgba(0, 79, 56, 0.4);
+    }
+
+    /* Smooth accordion container transition */
+    .expandable-panel {
+      transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+    }
+
+    /* Accessibility: Respect Reduced Motion Preferences */
+    @media (prefers-reduced-motion: reduce) {
+      *, ::before, ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .floating-help-btn,
+      .progress-bar-shimmer,
+      .pulse-beacon,
+      .animate-stagger-1,
+      .animate-stagger-2,
+      .animate-stagger-3,
+      .animate-stagger-4,
+      .animate-stagger-5,
+      .animate-stagger-6,
+      .animate-stagger-7 {
+        animation: none !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-surface font-body-lg text-body-lg text-on-surface antialiased">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.06)]">
+<div class="h-20 max-w-7xl mx-auto px-6 flex items-center justify-between gap-6">
+<div class="flex items-center gap-4">
+<img alt="EasyRail Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrAmWXXweFSir4MCfURWCNXr2fu-ttFtSUwiNGXfalVZKsJ7MJSS3RDpZSd1Zb8pZPf7to8cBeV-QOqros1A8DoVFyTEIZ3p8BJfyIShKfkEk1IXVQuPqYbc1V-pip5DqfG_KJS3X0YKKd_2mxTk9ZtufoH17FDP4J5Ov9HuUebehNaFGI9bwMDNcnTYiEt0h9llk1t1DyvOuC9t70JqWuoKdL0y0q2T07XPD68Ngjx-3w"/>
+<span class="hidden sm:inline-block font-label-md text-label-md text-on-surface-variant border-l-2 border-outline-variant pl-4">Train tickets made simple</span>
+</div>
+<nav class="hidden lg:flex items-center gap-2" data-active-classes="bg-surface-container text-primary font-bold">
+<a class="px-4 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="book-tickets" href="#">Book Tickets</a>
+<a class="px-4 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="my-journeys" href="#">My Journeys</a>
+<a class="px-4 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="station-assistance" href="#">Station Assistance</a>
+</nav>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-1 bg-surface-container-low px-2.5 py-1.5 rounded-lg border-2 border-outline-variant">
+<button aria-label="Language selection" class="px-2 py-1 rounded bg-surface-container-lowest border border-outline text-primary font-bold text-label-sm hover:bg-surface-container active:scale-95 transition-all" type="button">EN / हिं</button>
+<span class="w-[1px] h-6 bg-outline-variant mx-1"></span>
+<span class="font-label-sm text-label-sm text-on-surface font-bold mr-1 hidden sm:inline">Text:</span>
+<button aria-label="Decrease text size" class="min-h-[36px] min-w-[36px] sm:min-h-[40px] sm:min-w-[40px] flex items-center justify-center bg-surface-container-lowest rounded border border-outline text-on-surface font-label-md text-label-md hover:bg-surface-container active:scale-95 transition-all" type="button">A-</button>
+<button aria-label="Increase text size" class="min-h-[36px] min-w-[36px] sm:min-h-[40px] sm:min-w-[40px] flex items-center justify-center bg-surface-container-lowest rounded border border-outline text-on-surface font-label-md text-label-md hover:bg-surface-container active:scale-95 transition-all" type="button">A+</button>
+</div>
+<a class="hidden md:flex items-center gap-2 px-4 py-2 min-h-[48px] rounded-lg bg-surface-container text-primary font-label-md text-label-md border-2 border-primary/20 hover:bg-surface-container-high transition-colors" href="tel:139">
+<span class="material-symbols-outlined text-primary">call</span>
+<span>Railway Helpline: 139</span>
+</a>
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
+</div>
+</div>
+</div>
+<!-- Sub-header Breadcrumb and Stepper -->
+<div class="bg-surface-container-low border-t border-outline-variant">
+<div class="h-16 max-w-7xl mx-auto px-6 flex items-center justify-between gap-4">
+<button class="min-h-[48px] px-5 flex items-center gap-2 rounded-lg bg-surface-container-lowest border-2 border-outline text-on-surface font-label-md text-label-md hover:bg-surface-container-high hover:border-primary transition-all active:scale-95 shadow-sm" onclick="history.back()" type="button">
+<span class="material-symbols-outlined font-bold">arrow_back</span>
+<span>Back to Previous Step</span>
+</button>
+<div class="flex items-center gap-4">
+<span class="font-label-md text-label-md text-on-surface font-bold">Step 4 of 4: Final Confirmation &amp; Payment</span>
+<div class="w-36 sm:w-48 h-3.5 bg-surface-container-highest rounded-full overflow-hidden border border-outline-variant">
+<div class="progress-bar-shimmer h-full w-full rounded-full transition-all duration-500"></div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<main class="w-full pt-36 bg-surface">
+<div class="flex flex-col w-full">
+<!-- Step Synchronization Bar: Step 4 of 4 (100% Ready) with Entrance Animation -->
+<div class="w-full bg-surface-container-high py-4 px-6 shadow-sm border-b border-outline-variant/30 animate-stagger-1">
+<div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-primary text-on-primary font-label-md text-label-md shadow-sm">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">check</span>
+</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Step 4 of 4: Final Confirmation &amp; Payment</span>
+</div>
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<span class="font-label-md text-label-md text-primary font-bold">100% Ready</span>
+<div class="w-44 h-4 bg-surface-container-highest rounded-full overflow-hidden shadow-inner">
+<div class="progress-bar-shimmer h-full w-full rounded-full transition-all duration-500"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Primary Page Body Container (Max-width 768px for relaxed, senior-friendly single path reading) -->
+<div class="w-full max-w-3xl mx-auto px-4 sm:px-6 py-8 sm:py-12 flex flex-col gap-8">
+<!-- Page Title & Accessibility Control Header -->
+<header class="flex flex-col gap-4 animate-stagger-1">
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+<div>
+<span class="inline-block px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold uppercase tracking-wider mb-2">Final Step</span>
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">Review your journey &amp; confirm payment</h1>
+</div>
+<!-- Audio Read Out Loud Button with Ripple micro-interaction -->
+<button aria-live="polite" class="listen-btn self-start min-h-[56px] px-5 py-3 rounded-xl bg-surface-container-lowest text-on-surface font-label-md text-label-md shadow-md flex items-center gap-3 border-2 border-outline-variant hover:border-primary hover:bg-surface-container-low transition-all active:scale-95 focus:outline-none focus:ring-4 focus:ring-primary/20" id="listen-page-btn" onclick="toggleListenPage()" type="button">
+<span class="material-symbols-outlined text-primary text-[28px] sound-wave-icon transition-transform duration-200" id="listen-icon">volume_up</span>
+<span class="font-bold" id="listen-text">Listen to this page</span>
+</button>
+</div>
+<p class="font-body-xl text-body-xl text-on-surface-variant leading-relaxed">
+            Please check all details below before paying. Your tickets will be emailed immediately and sent to your phone via SMS and WhatsApp.
+          </p>
+</header>
+<!-- 1. Trip Summary Card -->
+<section aria-labelledby="journey-summary-heading" class="animate-stagger-2 bg-surface-container-lowest rounded-2xl p-6 sm:p-8 shadow-md flex flex-col gap-6 relative overflow-hidden border border-outline-variant/50 hover:shadow-lg transition-shadow duration-300">
+<!-- Decorative Accent Bar -->
+<div class="absolute top-0 left-0 right-0 h-2 bg-primary"></div>
+<div class="flex items-center justify-between flex-wrap gap-4 pt-2">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-xl bg-primary-fixed flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[32px]">train</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface" id="journey-summary-heading">22691 SBC NDLS Rajdhani Express</h2>
+<p class="font-label-md text-label-md text-on-surface-variant">Direct Superfast • Bengaluru City Jn (SBC) to New Delhi (NDLS)</p>
+</div>
+</div>
+<!-- Change details button with tactile hover & elevation -->
+<button class="min-h-[48px] px-4 py-2 rounded-lg bg-surface-container text-primary font-label-md text-label-md hover:bg-surface-container-high border-2 border-transparent hover:border-primary/30 transition-all duration-200 active:scale-95 flex items-center gap-2 shadow-sm hover:shadow" onclick="history.back()" type="button">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+<span class="font-bold">Change Details</span>
+</button>
+</div>
+<!-- Departure & Arrival Big Info Panel -->
+<div class="bg-surface-container-low rounded-xl p-5 sm:p-6 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-6 border border-outline-variant/40">
+<!-- Origin -->
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-bold uppercase tracking-wider">Departs From</span>
+<span class="font-headline-md text-headline-md text-on-surface font-bold">Bengaluru City Jn (SBC)</span>
+<span class="font-body-lg text-body-lg text-on-surface font-semibold">20:00, 12-11-2026 (Thu)</span>
+<span class="inline-block w-fit px-2.5 py-1 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm font-bold border border-outline-variant/50">Platform 8</span>
+</div>
+<!-- Transit Graphic and Duration -->
+<div class="flex flex-col items-center justify-center px-2 py-1">
+<span class="font-label-md text-label-md text-primary font-bold">33 hrs 55 mins</span>
+<div class="flex items-center gap-2 my-1 text-primary">
+<span class="w-3 h-3 rounded-full bg-primary ring-4 ring-primary-fixed"></span>
+<div class="w-24 sm:w-32 h-1 bg-primary rounded-full"></div>
+<span class="material-symbols-outlined text-[20px] transition-transform hover:translate-x-1">arrow_forward</span>
+<span class="w-3 h-3 rounded-full bg-primary ring-4 ring-primary-fixed"></span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">verified</span> Direct Superfast
+              </span>
+</div>
+<!-- Destination -->
+<div class="flex flex-col gap-1 sm:text-right">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-bold uppercase tracking-wider">Arrives At</span>
+<span class="font-headline-md text-headline-md text-on-surface font-bold">New Delhi (NDLS)</span>
+<span class="font-body-lg text-body-lg text-on-surface font-semibold">05:55 (+2 days), 14-11-2026 (Sat)</span>
+<span class="inline-block w-fit sm:self-end px-2.5 py-1 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm font-bold border border-outline-variant/50">Platform 3</span>
+</div>
+</div>
+<!-- Specific Coach, Seat & Passenger Details -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Seat assignment & Quota -->
+<div class="bg-surface-container-lowest p-4 rounded-xl flex items-start gap-4 border border-outline-variant/40 hover:border-primary/40 transition-colors">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary shrink-0 shadow-sm">
+<span class="material-symbols-outlined">airline_seat_recline_extra</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Class &amp; Preference</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">AC 3-Tier (3A)</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Senior Lower Berth Priority • Auto-Upgrade Opted</span>
+</div>
+</div>
+<!-- Passenger info -->
+<div class="bg-surface-container-lowest p-4 rounded-xl flex items-start gap-4 border border-outline-variant/40 hover:border-primary/40 transition-colors">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary shrink-0 shadow-sm">
+<span class="material-symbols-outlined">badge</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Passenger Details</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Ramesh Chandra Sharma</span>
+<span class="font-body-md text-body-md text-tertiary font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">elderly</span> Male, Age 64 • Senior Quota Allocated
+                </span>
+</div>
+</div>
+</div>
+<!-- Free Station Assistance Reassurance Highlight -->
+<div class="bg-surface-container-low rounded-xl p-5 flex items-start gap-4 border-2 border-tertiary-fixed transition-colors">
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">accessibility_new</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-tertiary">Confirmed Free Station Assistance</span>
+<span class="px-2 py-0.5 rounded bg-tertiary text-on-tertiary font-label-sm text-label-sm font-bold shadow-sm">Confirmed</span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed">
+                Confirmed Free Sahayak &amp; Battery Cart at SBC &amp; NDLS. A designated porter will receive Mr. Ramesh Sharma at Bengaluru City Jn Main Porch at 19:15 PM and guide to Coach B3.
+              </p>
+</div>
+</div>
+</section>
+<!-- 2. Fare Breakdown Card -->
+<section aria-labelledby="fare-breakdown-heading" class="animate-stagger-3 bg-surface-container-lowest rounded-2xl p-6 sm:p-8 shadow-md flex flex-col gap-6 border border-outline-variant/50 hover:shadow-lg transition-shadow duration-300">
+<div class="flex items-center justify-between flex-wrap gap-3">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[32px]">receipt_long</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface" id="fare-breakdown-heading">Fare &amp; Cost Breakdown</h2>
+<p class="font-label-md text-label-md text-on-surface-variant">Completely transparent pricing with zero surprise charges</p>
+</div>
+</div>
+<button aria-expanded="false" class="px-3 py-1.5 rounded-lg bg-surface-container-low text-primary font-label-sm text-label-sm font-bold border border-outline-variant hover:bg-surface-container-high transition-colors flex items-center gap-1.5" id="fare-disclosure-btn" onclick="toggleFareTooltip()" type="button">
+<span class="material-symbols-outlined text-[18px]">info</span>
+<span>View tax &amp; surcharge details</span>
+</button>
+</div>
+<!-- Subtle contextual disclosure banner -->
+<div class="hidden bg-surface-container-low p-4 rounded-xl border border-primary/20 text-body-md text-on-surface flex items-start gap-3 transition-all duration-300" id="fare-disclosure-box">
+<span class="material-symbols-outlined text-primary text-[24px] shrink-0">verified_user</span>
+<span>Indian Railways policy guarantees standard statutory GST (5% for AC Classes) and fixed ₹15 IRCTC convenience charge. Senior citizen berth reservations are allotted with zero administrative premium.</span>
+</div>
+<!-- Line Item Details with hover highlight interactions -->
+<div class="flex flex-col gap-1">
+<!-- Base Fare -->
+<div class="flex items-center justify-between py-2.5 px-3 rounded-lg hover:bg-surface-container-low border-b border-outline-variant/40 transition-colors">
+<div class="flex flex-col">
+<span class="font-body-lg text-body-lg text-on-surface font-semibold">Base Fare (3A - 2,365 km)</span>
+<span class="font-body-md text-body-md text-on-surface-variant">AC 3-Tier Class Journey Fare</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface">₹2,420</span>
+</div>
+<!-- Reservation Charge -->
+<div class="flex items-center justify-between py-2.5 px-3 rounded-lg hover:bg-surface-container-low border-b border-outline-variant/40 transition-colors">
+<div class="flex flex-col">
+<span class="font-body-lg text-body-lg text-on-surface font-semibold">Reservation Charge</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Reserved berth confirmation fee</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface">₹40</span>
+</div>
+<!-- Superfast Surcharge -->
+<div class="flex items-center justify-between py-2.5 px-3 rounded-lg hover:bg-surface-container-low border-b border-outline-variant/40 transition-colors">
+<div class="flex flex-col">
+<span class="font-body-lg text-body-lg text-on-surface font-semibold">Superfast Surcharge</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Rajdhani Express Priority Speed Surcharge</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface">₹45</span>
+</div>
+<!-- GST -->
+<div class="flex items-center justify-between py-2.5 px-3 rounded-lg hover:bg-surface-container-low border-b border-outline-variant/40 transition-colors">
+<div class="flex flex-col">
+<span class="font-body-lg text-body-lg text-on-surface font-semibold">GST (5% on AC classes)</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Central &amp; State Goods and Services Tax</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface">₹125</span>
+</div>
+<!-- IRCTC Convenience Fee -->
+<div class="flex items-center justify-between py-2.5 px-3 rounded-lg hover:bg-surface-container-low border-b border-outline-variant/40 transition-colors">
+<div class="flex flex-col">
+<span class="font-body-lg text-body-lg text-on-surface font-semibold">IRCTC Convenience Fee</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Statutory ticketing service fee</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface">₹15</span>
+</div>
+<!-- Senior Citizen Concession -->
+<div class="flex items-center justify-between py-3 bg-surface-container-low px-4 rounded-xl mt-1 border border-outline-variant/40">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[24px] text-primary">elderly</span>
+<div class="flex flex-col">
+<span class="font-body-lg text-body-lg font-bold text-on-surface">Senior Citizen Concession / Berth Priority</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Lower Berth Priority Allocation</span>
+</div>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface-variant font-bold">₹0 (Nil)</span>
+</div>
+</div>
+<!-- High Contrast Total Display Block -->
+<div class="bg-primary text-on-primary rounded-xl p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-md transition-transform duration-300">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-primary tracking-wide uppercase opacity-90 font-bold">TOTAL AMOUNT TO PAY: ₹2,645</span>
+<span class="font-body-md text-body-md text-on-primary opacity-80">All-inclusive official IRCTC fare • Zero hidden charges</span>
+</div>
+<div class="flex flex-col sm:items-end">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl text-on-primary font-bold">₹2,645</span>
+</div>
+<span class="inline-flex items-center gap-1.5 font-label-sm text-label-sm text-on-primary font-semibold bg-primary-container px-3 py-1 rounded-full mt-1 shadow-sm">
+<span class="material-symbols-outlined text-[16px]">verified</span> Guaranteed Final Price
+              </span>
+</div>
+</div>
+</section>
+<!-- 3. Payment Method Selection (Accessible, Large Radio Containers with dynamic expansion) -->
+<section aria-labelledby="payment-method-heading" class="animate-stagger-4 bg-surface-container-lowest rounded-2xl p-6 sm:p-8 shadow-md flex flex-col gap-6 border border-outline-variant/50 hover:shadow-lg transition-shadow duration-300">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[32px]">credit_card</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface" id="payment-method-heading">How would you like to pay?</h2>
+<p class="font-label-md text-label-md text-on-surface-variant">Select your preferred and most convenient payment method</p>
+</div>
+</div>
+<div aria-label="Payment Method Selection" class="flex flex-col gap-4" role="radiogroup">
+<!-- Option 1: UPI (Instant & Zero Surcharge) - Selected by Default -->
+<div class="cursor-pointer rounded-xl p-5 bg-surface-container-high shadow-md transition-all duration-300 border-2 border-primary" id="method-box-upi" onclick="togglePaymentMethod('upi')">
+<div class="flex items-center justify-between flex-wrap gap-2">
+<label class="flex items-center gap-4 cursor-pointer">
+<input checked="" class="w-7 h-7 text-primary focus:ring-primary focus:ring-offset-2 transition-transform cursor-pointer" id="radio-upi" name="payment_choice" onchange="togglePaymentMethod('upi')" type="radio" value="upi"/>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">UPI (Instant &amp; Zero Surcharge)</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Google Pay, PhonePe, Paytm, BHIM UPI</span>
+</div>
+</label>
+<!-- Interactive UPI app chips -->
+<div class="flex items-center gap-2" id="upi-chips-row">
+<button class="upi-chip px-2.5 py-1 rounded bg-surface-container-lowest text-primary text-xs font-bold border border-primary/40 shadow-sm hover:scale-105 active:scale-95 transition-all" onclick="selectUpiChip(event, 'GPay')" type="button">GPay</button>
+<button class="upi-chip px-2.5 py-1 rounded bg-surface-container-lowest text-primary text-xs font-bold border border-outline-variant shadow-sm hover:scale-105 active:scale-95 transition-all" onclick="selectUpiChip(event, 'PhonePe')" type="button">PhonePe</button>
+<button class="upi-chip px-2.5 py-1 rounded bg-surface-container-lowest text-primary text-xs font-bold border border-outline-variant shadow-sm hover:scale-105 active:scale-95 transition-all" onclick="selectUpiChip(event, 'Paytm')" type="button">Paytm</button>
+<button class="upi-chip px-2.5 py-1 rounded bg-surface-container-lowest text-primary text-xs font-bold border border-outline-variant shadow-sm hover:scale-105 active:scale-95 transition-all" onclick="selectUpiChip(event, 'BHIM UPI')" type="button">BHIM UPI</button>
+</div>
+</div>
+<!-- UPI Form Entry Panel -->
+<div class="mt-6 pt-6 flex flex-col gap-5 border-t border-outline-variant/60 transition-all duration-300" id="upi-entry-form">
+<!-- VPA Input Box Section -->
+<div class="flex flex-col gap-2" id="vpa-input-section">
+<label class="font-label-md text-label-md text-on-surface font-bold" for="upi_id">
+                    Enter your UPI ID / VPA
+                  </label>
+<div class="relative">
+<input class="w-full min-h-[56px] px-5 text-on-surface bg-surface-container-lowest rounded-lg font-body-lg text-body-lg focus:outline-none focus:ring-4 focus:ring-primary shadow-sm border border-outline-variant transition-all" id="upi_id" placeholder="ramesh@oksbi or 9876543210@paytm" required="" type="text" value="ramesh@oksbi"/>
+<div class="absolute right-4 top-1/2 -translate-y-1/2 text-tertiary flex items-center gap-1 font-label-sm text-label-sm font-bold bg-surface-container-lowest px-2 py-0.5 rounded">
+<span class="material-symbols-outlined text-[20px]">check_circle</span> Verified VPA
+                    </div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">A payment collect request will be sent to your UPI App.</span>
+</div>
+<!-- Interactive QR Expand Banner -->
+<div class="flex items-center justify-between flex-wrap gap-3 bg-surface-container-lowest p-3.5 rounded-lg border border-outline-variant hover:border-primary transition-all">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[28px]">qr_code_scanner</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-bold">Prefer scanning a QR code?</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Tap to show static BHIM QR code on screen</span>
+</div>
+</div>
+<button class="ml-auto min-h-[44px] px-4 py-2 rounded-lg bg-surface-container text-primary font-bold text-label-sm hover:bg-surface-container-highest active:scale-95 transition-all shadow-sm border border-outline-variant hover:border-primary" id="toggle-qr-btn" onclick="toggleUpiQrCode(event)" type="button">
+                    Show QR
+                  </button>
+</div>
+<!-- Smoothly Expandable QR Code Container -->
+<div class="hidden flex-col items-center justify-center p-6 bg-surface-container-lowest rounded-xl border-2 border-dashed border-primary/50 text-center gap-4 transition-all duration-300" id="upi-qr-display">
+<span class="font-label-md text-label-md text-on-surface font-bold">Scan to Pay ₹2,645 with Any UPI App</span>
+<!-- Clean, Accessible SVG QR Code Graphic -->
+<div class="p-3 bg-white rounded-xl shadow-md border border-outline-variant inline-block">
+<svg aria-label="QR Code to Pay ₹2,645" class="w-48 h-48 mx-auto" fill="#141b2b" viewbox="0 0 100 100">
+<!-- Corner Markers -->
+<rect fill="#141b2b" height="28" rx="4" width="28" x="5" y="5"></rect>
+<rect fill="#ffffff" height="20" rx="2" width="20" x="9" y="9"></rect>
+<rect fill="#0037b0" height="12" rx="1" width="12" x="13" y="13"></rect>
+<rect fill="#141b2b" height="28" rx="4" width="28" x="67" y="5"></rect>
+<rect fill="#ffffff" height="20" rx="2" width="20" x="71" y="9"></rect>
+<rect fill="#0037b0" height="12" rx="1" width="12" x="75" y="13"></rect>
+<rect fill="#141b2b" height="28" rx="4" width="28" x="5" y="67"></rect>
+<rect fill="#ffffff" height="20" rx="2" width="20" x="9" y="71"></rect>
+<rect fill="#0037b0" height="12" rx="1" width="12" x="13" y="75"></rect>
+<!-- QR Code Data Grid Pattern -->
+<rect height="6" width="6" x="38" y="8"></rect>
+<rect height="12" width="6" x="48" y="8"></rect>
+<rect height="6" width="12" x="38" y="20"></rect>
+<rect height="6" width="6" x="56" y="14"></rect>
+<rect height="12" width="6" x="8" y="38"></rect>
+<rect height="6" width="12" x="20" y="38"></rect>
+<rect height="12" width="6" x="20" y="48"></rect>
+<rect fill="#0037b0" height="24" width="24" x="38" y="38"></rect>
+<rect fill="#ffffff" height="12" width="12" x="44" y="44"></rect>
+<rect height="6" width="12" x="68" y="38"></rect>
+<rect height="14" width="8" x="84" y="38"></rect>
+<rect height="12" width="10" x="68" y="48"></rect>
+<rect height="6" width="10" x="82" y="56"></rect>
+<rect height="14" width="8" x="38" y="68"></rect>
+<rect height="6" width="12" x="50" y="68"></rect>
+<rect height="6" width="18" x="42" y="86"></rect>
+<rect height="10" width="6" x="68" y="68"></rect>
+<rect height="6" width="14" x="78" y="68"></rect>
+<rect height="10" width="22" x="70" y="82"></rect>
+</svg>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm">
+                    Open any UPI app like GPay, PhonePe, Paytm or BHIM to scan. Amount <strong>₹2,645</strong> is locked automatically.
+                  </p>
+<button class="text-primary font-bold text-label-sm underline hover:text-primary-container" onclick="toggleUpiQrCode(event)" type="button">
+                    Switch back to UPI ID entry
+                  </button>
+</div>
+</div>
+</div>
+<!-- Option 2: Debit Card (Rupay, Visa, Mastercard) -->
+<div class="cursor-pointer rounded-xl p-5 bg-surface-container-lowest shadow-sm hover:bg-surface-container-high transition-all duration-300 border-2 border-outline-variant/60" id="method-box-debit" onclick="togglePaymentMethod('debit')">
+<div class="flex items-center justify-between">
+<label class="flex items-center gap-4 cursor-pointer">
+<input class="w-7 h-7 text-primary focus:ring-primary focus:ring-offset-2 transition-transform cursor-pointer" id="radio-debit" name="payment_choice" onchange="togglePaymentMethod('debit')" type="radio" value="debit"/>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Debit Card (RuPay, Visa, Mastercard)</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Supports all domestic bank debit cards</span>
+</div>
+</label>
+<div class="hidden sm:flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[32px]">credit_card</span>
+</div>
+</div>
+<!-- Card Input Fields -->
+<div class="mt-6 pt-6 hidden flex flex-col gap-5 border-t border-outline-variant/60 transition-all duration-300" id="card-entry-form">
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface font-bold" for="card_num">
+                    Card Number
+                  </label>
+<input class="w-full min-h-[56px] px-5 text-on-surface bg-surface-container-lowest rounded-lg font-body-lg text-body-lg focus:outline-none focus:ring-4 focus:ring-primary shadow-sm border border-outline-variant" id="card_num" placeholder="XXXX XXXX XXXX XXXX" type="text"/>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface font-bold" for="card_exp">
+                      Expiry Date (MM / YY)
+                    </label>
+<input class="w-full min-h-[56px] px-5 text-on-surface bg-surface-container-lowest rounded-lg font-body-lg text-body-lg focus:outline-none focus:ring-4 focus:ring-primary shadow-sm border border-outline-variant" id="card_exp" placeholder="MM / YY" type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface font-bold" for="card_cvv">
+                      CVV / Security Code
+                    </label>
+<input class="w-full min-h-[56px] px-5 text-on-surface bg-surface-container-lowest rounded-lg font-body-lg text-body-lg focus:outline-none focus:ring-4 focus:ring-primary shadow-sm border border-outline-variant" id="card_cvv" maxlength="4" placeholder="3 digits on back" type="password"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Option 3: Credit Card (All Major Banks) -->
+<div class="cursor-pointer rounded-xl p-5 bg-surface-container-lowest shadow-sm hover:bg-surface-container-high transition-all duration-300 border-2 border-outline-variant/60" id="method-box-credit" onclick="togglePaymentMethod('credit')">
+<div class="flex items-center justify-between">
+<label class="flex items-center gap-4 cursor-pointer">
+<input class="w-7 h-7 text-primary focus:ring-primary focus:ring-offset-2 transition-transform cursor-pointer" id="radio-credit" name="payment_choice" onchange="togglePaymentMethod('credit')" type="radio" value="credit"/>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Credit Card</span>
+<span class="font-body-md text-body-md text-on-surface-variant">All major Indian and international banks supported</span>
+</div>
+</label>
+<div class="hidden sm:flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[32px]">payments</span>
+</div>
+</div>
+<div class="mt-6 pt-6 hidden flex flex-col gap-5 border-t border-outline-variant/60 transition-all duration-300" id="credit-entry-form">
+<p class="font-body-md text-body-md text-on-surface-variant">Card details will be prompted via 3D Secure OTP verification.</p>
+</div>
+</div>
+<!-- Option 4: Net Banking -->
+<div class="cursor-pointer rounded-xl p-5 bg-surface-container-lowest shadow-sm hover:bg-surface-container-high transition-all duration-300 border-2 border-outline-variant/60" id="method-box-netbanking" onclick="togglePaymentMethod('netbanking')">
+<div class="flex items-center justify-between">
+<label class="flex items-center gap-4 cursor-pointer">
+<input class="w-7 h-7 text-primary focus:ring-primary focus:ring-offset-2 transition-transform cursor-pointer" id="radio-netbanking" name="payment_choice" onchange="togglePaymentMethod('netbanking')" type="radio" value="netbanking"/>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Net Banking</span>
+<span class="font-body-md text-body-md text-on-surface-variant">SBI, HDFC, ICICI, PNB, Axis and 50+ other banks</span>
+</div>
+</label>
+<div class="hidden sm:flex items-center gap-2 text-primary font-headline-sm text-headline-sm font-bold">
+<span class="material-symbols-outlined text-[32px]">account_balance</span>
+</div>
+</div>
+<div class="mt-6 pt-6 hidden flex flex-col gap-5 border-t border-outline-variant/60 transition-all duration-300" id="netbanking-entry-form">
+<label class="font-label-md text-label-md text-on-surface font-bold" for="bank_select">Select Your Bank</label>
+<select class="w-full min-h-[56px] px-5 text-on-surface bg-surface-container-lowest rounded-lg font-body-lg text-body-lg border border-outline-variant shadow-sm focus:ring-4 focus:ring-primary focus:outline-none" id="bank_select">
+<option>State Bank of India (SBI)</option>
+<option>HDFC Bank</option>
+<option>ICICI Bank</option>
+<option>Punjab National Bank (PNB)</option>
+<option>Axis Bank</option>
+<option>Bank of Baroda</option>
+</select>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. Terms, Booking Conditions & Refund Policy -->
+<section class="animate-stagger-5 bg-surface-container-lowest rounded-2xl p-6 sm:p-8 shadow-md flex flex-col gap-5 border border-outline-variant/50 hover:shadow-lg transition-shadow duration-300">
+<div class="flex items-start gap-4">
+<input checked="" class="w-7 h-7 text-primary rounded focus:ring-primary focus:ring-offset-2 mt-1 shrink-0 cursor-pointer transition-transform duration-200 active:scale-90" id="terms-checkbox" onchange="handleTermsChange(this)" type="checkbox"/>
+<label class="font-body-lg text-body-lg text-on-surface cursor-pointer select-none" for="terms-checkbox">
+              I agree to the Indian Railways Passenger Rules &amp; Cancellation Policy in plain language.
+            </label>
+</div>
+<!-- Plain language refund promise -->
+<div class="bg-surface-container-low rounded-xl p-4 flex items-center justify-between flex-wrap gap-3 border border-outline-variant/40">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary text-[26px]">history</span>
+<span class="font-body-md text-body-md text-on-surface font-semibold">
+                Peace of mind guarantee: Official IRCTC refund rules apply on online ticket cancellation.
+              </span>
+</div>
+<button class="font-label-md text-label-md text-primary underline hover:text-primary-container font-bold transition-colors" onclick="toggleTermsModal(true)" type="button">
+              Read Indian Railways refund &amp; booking terms
+            </button>
+</div>
+</section>
+<!-- 6. Big Accessible Green "Pay Now" Button -->
+<section class="animate-stagger-6 flex flex-col items-center gap-4">
+<button aria-label="Pay 2,645 Rupees Now" class="pay-btn-glow w-full min-h-[60px] px-8 py-4 rounded-2xl bg-tertiary text-on-tertiary hover:bg-tertiary-container active:scale-[0.98] transition-all flex items-center justify-center gap-4 group cursor-pointer" id="primary-pay-button" onclick="handlePayClick()" type="button">
+<span class="material-symbols-outlined text-[32px] text-on-tertiary transition-transform group-hover:scale-110" style="font-variation-settings: 'FILL' 1;">lock</span>
+<span class="font-headline-md text-headline-md sm:text-headline-lg font-bold text-on-tertiary tracking-tight">
+              Pay ₹2,645 Now — Secure IRCTC Payment ✓
+            </span>
+</button>
+<!-- Trust Badges & Guarantees -->
+<div class="flex items-center justify-center flex-wrap gap-4 text-center font-label-md text-label-md text-on-surface-variant">
+<span class="flex items-center gap-1.5 hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-tertiary text-[20px]">security</span>
+              🔒 256-bit Bank Grade Encryption
+            </span>
+<span>•</span>
+<span class="flex items-center gap-1.5 hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-tertiary text-[20px]">chat</span>
+              Instant SMS &amp; WhatsApp E-Ticket Delivery
+            </span>
+<span>•</span>
+<span class="flex items-center gap-1.5 hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-tertiary text-[20px]">call</span>
+              Helpline: 139
+            </span>
+</div>
+</section>
+<!-- 7. Four-Pillar Peace of Mind Reassurance Strip with Lift Interactions -->
+<section class="animate-stagger-7 bg-surface-container rounded-2xl p-6 sm:p-8 flex flex-col gap-6 border border-outline-variant/40 shadow-sm">
+<h3 class="font-headline-sm text-headline-sm text-on-surface text-center font-bold">Every EasyRail IRCTC Booking Includes:</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Feature 1 -->
+<div class="bg-surface-container-lowest p-4 rounded-xl flex items-center gap-3 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200 border border-outline-variant/30">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined">airline_seat_recline_normal</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-bold">Lower Berth Choice</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Senior quota prioritized</span>
+</div>
+</div>
+<!-- Feature 2 -->
+<div class="bg-surface-container-lowest p-4 rounded-xl flex items-center gap-3 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200 border border-outline-variant/30">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined">electric_moped</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-bold">Battery Car &amp; Porter</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Station assistance</span>
+</div>
+</div>
+<!-- Feature 3 -->
+<div class="bg-surface-container-lowest p-4 rounded-xl flex items-center gap-3 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200 border border-outline-variant/30">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined">support_agent</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-bold">Dial 139</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Indian Railway helpline</span>
+</div>
+</div>
+<!-- Feature 4 -->
+<div class="bg-surface-container-lowest p-4 rounded-xl flex items-center gap-3 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200 border border-outline-variant/30">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined">bolt</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-bold">Auto-Upgrade</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Eligible for 2A/1A free</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Plain-English Terms and Conditions Modal Dialog (Accessible) -->
+<div aria-labelledby="terms-title" aria-modal="true" class="hidden fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4 transition-opacity duration-200" id="terms-modal" role="dialog">
+<div class="bg-surface-container-lowest rounded-2xl max-w-xl w-full max-h-[870px] overflow-y-auto p-6 sm:p-8 shadow-2xl flex flex-col gap-6 animate-stagger-1">
+<div class="flex items-center justify-between pb-3 border-b-2 border-outline-variant">
+<h3 class="font-headline-md text-headline-md text-on-surface" id="terms-title">Indian Railways Refund &amp; Booking Terms</h3>
+<button aria-label="Close dialog" class="w-12 h-12 flex items-center justify-center rounded-full hover:bg-surface-container text-on-surface transition-colors" onclick="toggleTermsModal(false)" type="button">
+<span class="material-symbols-outlined text-[28px]">close</span>
+</button>
+</div>
+<div class="flex flex-col gap-4 font-body-lg text-body-lg text-on-surface">
+<p><strong>1. Cancellation &amp; TDR Rules:</strong> Confirmed tickets cancelled up to 48 hours prior to train departure are subject to standard IRCTC clerkage deductions. Online TDR can be filed if train is delayed by more than 3 hours.</p>
+<p><strong>2. Free Luggage:</strong> 3A passenger luggage allowance allows up to 40 kg per adult passenger free of cost.</p>
+<p><strong>3. Station Sahayak &amp; Wheelchair:</strong> Free battery-operated cart and sahayak porter assistance is confirmed for passenger Ramesh Chandra Sharma at both Bengaluru City (SBC) and New Delhi (NDLS) terminals.</p>
+<p><strong>4. Valid ID Requirement:</strong> The passenger must carry an original government photo identity card (Aadhaar Card, Voter Card, Driving License, or Senior Citizen ID) during travel.</p>
+</div>
+<button class="w-full min-h-[56px] rounded-xl bg-primary text-on-primary font-label-lg text-label-lg hover:bg-primary-container transition-all active:scale-95 shadow-md font-bold" onclick="toggleTermsModal(false)" type="button">
+            I Understand — Close Window
+          </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Help Menu for Railway Helpline 139 with Pulsating Live Beacon -->
+<aside class="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-2">
+<div class="hidden bg-surface-container-lowest border-2 border-outline-variant rounded-2xl p-4 shadow-2xl flex flex-col gap-3 min-w-[280px] mb-2 animate-stagger-1" id="help-options-popup">
+<div class="flex items-center justify-between pb-2 border-b border-outline-variant">
+<span class="font-label-md text-label-md text-on-surface font-bold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[20px]">railway_alert</span>Railway Helpline 139
+        </span>
+<button aria-label="Close Help Menu" class="text-on-surface-variant hover:text-on-surface p-1 rounded hover:bg-surface-container" onclick="toggleHelpMenu()" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<a class="flex items-center gap-3 p-2 rounded-lg hover:bg-surface-container text-on-surface font-label-md text-label-md transition-colors" href="tel:139">
+<span class="material-symbols-outlined text-primary">call</span>
+<span>Call 139 (24x7 All India)</span>
+</a>
+<a class="flex items-center gap-3 p-2 rounded-lg hover:bg-surface-container text-on-surface font-label-md text-label-md transition-colors" href="#" onclick="alert('Redirecting to TDR / Refund filing portal.'); return false;">
+<span class="material-symbols-outlined text-tertiary">currency_rupee</span>
+<span>Raise a refund or dispute (TDR)</span>
+</a>
+<a class="flex items-center gap-3 p-2 rounded-lg hover:bg-surface-container text-on-surface font-label-md text-label-md transition-colors" href="#" onclick="alert('Enter your 10-digit PNR to track status.'); return false;">
+<span class="material-symbols-outlined text-secondary">search</span>
+<span>Check PNR status</span>
+</a>
+</div>
+<!-- Floating Help Button -->
+<button aria-label="Railway Helpline 139. Tap for help options" class="floating-help-btn min-h-[64px] px-6 py-3 flex items-center gap-3 bg-primary text-on-primary rounded-full shadow-[0_6px_20px_rgba(0,0,0,0.18)] hover:bg-primary-container active:scale-95 transition-all border-2 border-surface-container-lowest cursor-pointer relative" onclick="toggleHelpMenu()" type="button">
+<!-- Pulsating beacon indicator -->
+<span class="pulse-beacon absolute top-2 right-2 w-3.5 h-3.5 bg-tertiary-fixed rounded-full ring-2 ring-primary"></span>
+<span class="material-symbols-outlined text-[28px]">support_agent</span>
+<div class="flex flex-col text-left">
+<span class="font-label-lg text-label-lg leading-tight text-on-primary font-bold">Railway Helpline 139</span>
+<span class="font-label-sm text-label-sm text-on-primary-container">Call 139 • PNR • TDR Help</span>
+</div>
+</button>
+</aside>
+<!-- Footer -->
+<footer class="w-full bg-surface-container-lowest border-t-2 border-outline-variant py-10">
+<div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="flex flex-col items-center md:items-start gap-1">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">EasyRail</span>
+<p class="font-body-md text-body-md text-on-surface-variant">Reassuring, simple, and clear rail ticketing for everyone.</p>
+</div>
+<div class="flex items-center gap-6 font-label-md text-label-md text-on-surface-variant flex-wrap justify-center">
+<a class="hover:text-primary hover:underline" href="#">Help Center</a>
+<a class="hover:text-primary hover:underline" href="#">Senior Citizen Quota</a>
+<a class="hover:text-primary hover:underline" href="#">Station Sahayak Services</a>
+<a class="hover:text-primary hover:underline" href="#">IRCTC Privacy &amp; Terms</a>
+</div>
+</div>
+</footer>
+<!-- Vanilla JavaScript for Rich Micro-Interactions & State Management -->
+<script>
+    function togglePaymentMethod(method) {
+      const upiForm = document.getElementById('upi-entry-form');
+      const cardForm = document.getElementById('card-entry-form');
+      const creditForm = document.getElementById('credit-entry-form');
+      const netbankingForm = document.getElementById('netbanking-entry-form');
+
+      const radioUpi = document.getElementById('radio-upi');
+      const radioDebit = document.getElementById('radio-debit');
+      const radioCredit = document.getElementById('radio-credit');
+      const radioNetbanking = document.getElementById('radio-netbanking');
+
+      const boxUpi = document.getElementById('method-box-upi');
+      const boxDebit = document.getElementById('method-box-debit');
+      const boxCredit = document.getElementById('method-box-credit');
+      const boxNetbanking = document.getElementById('method-box-netbanking');
+
+      const allBoxes = [boxUpi, boxDebit, boxCredit, boxNetbanking];
+      const allForms = [upiForm, cardForm, creditForm, netbankingForm];
+
+      allBoxes.forEach(el => {
+        if (el) {
+          el.classList.remove('bg-surface-container-high', 'shadow-md', 'border-primary');
+          el.classList.add('bg-surface-container-lowest', 'border-outline-variant/60');
+        }
+      });
+
+      allForms.forEach(el => {
+        if (el) el.classList.add('hidden');
+      });
+
+      if (method === 'upi') {
+        if (radioUpi) radioUpi.checked = true;
+        if (boxUpi) {
+          boxUpi.classList.add('bg-surface-container-high', 'shadow-md', 'border-primary');
+          boxUpi.classList.remove('bg-surface-container-lowest', 'border-outline-variant/60');
+        }
+        if (upiForm) upiForm.classList.remove('hidden');
+      } else if (method === 'debit') {
+        if (radioDebit) radioDebit.checked = true;
+        if (boxDebit) {
+          boxDebit.classList.add('bg-surface-container-high', 'shadow-md', 'border-primary');
+          boxDebit.classList.remove('bg-surface-container-lowest', 'border-outline-variant/60');
+        }
+        if (cardForm) cardForm.classList.remove('hidden');
+      } else if (method === 'credit') {
+        if (radioCredit) radioCredit.checked = true;
+        if (boxCredit) {
+          boxCredit.classList.add('bg-surface-container-high', 'shadow-md', 'border-primary');
+          boxCredit.classList.remove('bg-surface-container-lowest', 'border-outline-variant/60');
+        }
+        if (creditForm) creditForm.classList.remove('hidden');
+      } else if (method === 'netbanking') {
+        if (radioNetbanking) radioNetbanking.checked = true;
+        if (boxNetbanking) {
+          boxNetbanking.classList.add('bg-surface-container-high', 'shadow-md', 'border-primary');
+          boxNetbanking.classList.remove('bg-surface-container-lowest', 'border-outline-variant/60');
+        }
+        if (netbankingForm) netbankingForm.classList.remove('hidden');
+      }
+    }
+
+    // Toggle and select UPI chips with tactile style
+    function selectUpiChip(event, appName) {
+      event.stopPropagation();
+      const chips = document.querySelectorAll('.upi-chip');
+      chips.forEach(c => {
+        c.classList.remove('border-primary', 'bg-surface-container-highest', 'text-primary-container');
+        c.classList.add('border-outline-variant', 'bg-surface-container-lowest');
+      });
+      event.currentTarget.classList.add('border-primary', 'bg-surface-container-highest', 'text-primary-container');
+      
+      const upiInput = document.getElementById('upi_id');
+      if (upiInput) {
+        if (appName === 'GPay') upiInput.value = 'ramesh@oksbi';
+        else if (appName === 'PhonePe') upiInput.value = '9876543210@ybl';
+        else if (appName === 'Paytm') upiInput.value = '9876543210@paytm';
+        else if (appName === 'BHIM UPI') upiInput.value = 'ramesh@upi';
+      }
+    }
+
+    // Toggle QR Code presentation smoothly
+    let isQrShowing = false;
+    function toggleUpiQrCode(event) {
+      if (event) event.stopPropagation();
+      const qrBox = document.getElementById('upi-qr-display');
+      const vpaSection = document.getElementById('vpa-input-section');
+      const toggleBtn = document.getElementById('toggle-qr-btn');
+
+      isQrShowing = !isQrShowing;
+      if (isQrShowing) {
+        qrBox.classList.remove('hidden');
+        qrBox.classList.add('flex');
+        vpaSection.classList.add('opacity-40');
+        if (toggleBtn) toggleBtn.innerText = 'Hide QR';
+      } else {
+        qrBox.classList.add('hidden');
+        qrBox.classList.remove('flex');
+        vpaSection.classList.remove('opacity-40');
+        if (toggleBtn) toggleBtn.innerText = 'Show QR';
+      }
+    }
+
+    // Toggle Fare details tooltip / contextual note
+    function toggleFareTooltip() {
+      const box = document.getElementById('fare-disclosure-box');
+      const btn = document.getElementById('fare-disclosure-btn');
+      if (box) {
+        const isHidden = box.classList.contains('hidden');
+        if (isHidden) {
+          box.classList.remove('hidden');
+          btn.setAttribute('aria-expanded', 'true');
+        } else {
+          box.classList.add('hidden');
+          btn.setAttribute('aria-expanded', 'false');
+        }
+      }
+    }
+
+    // Checkbox validation helper
+    function handleTermsChange(checkbox) {
+      const payBtn = document.getElementById('primary-pay-button');
+      if (checkbox.checked) {
+        payBtn.classList.remove('opacity-50', 'pointer-events-none');
+      } else {
+        payBtn.classList.add('opacity-50');
+      }
+    }
+
+    function handlePayClick() {
+      const termsCheck = document.getElementById('terms-checkbox');
+      if (!termsCheck.checked) {
+        alert('Please accept the Indian Railways Passenger Rules before completing payment.');
+        termsCheck.focus();
+        return;
+      }
+      alert('Thank you, Ramesh Chandra Sharma! Your booking is confirmed. IRCTC PNR #4419284752 has been sent to your mobile via SMS and WhatsApp.');
+    }
+
+    // Terms modal
+    function toggleTermsModal(show) {
+      const modal = document.getElementById('terms-modal');
+      if (modal) {
+        if (show) {
+          modal.classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
+        } else {
+          modal.classList.add('hidden');
+          document.body.style.overflow = '';
+        }
+      }
+    }
+
+    // Floating Help Menu
+    function toggleHelpMenu() {
+      const menu = document.getElementById('help-options-popup');
+      if (menu) {
+        menu.classList.toggle('hidden');
+      }
+    }
+
+    // Speech synthesis reader
+    let isSpeaking = false;
+    function toggleListenPage() {
+      const btn = document.getElementById('listen-page-btn');
+      const icon = document.getElementById('listen-icon');
+      const text = document.getElementById('listen-text');
+
+      if (!('speechSynthesis' in window)) {
+        alert("Text-to-speech is available on modern web browsers.");
+        return;
+      }
+
+      if (isSpeaking) {
+        window.speechSynthesis.cancel();
+        isSpeaking = false;
+        icon.innerText = 'volume_up';
+        text.innerText = 'Listen to this page';
+        btn.classList.remove('bg-primary', 'text-on-primary');
+        btn.classList.add('bg-surface-container-lowest', 'text-on-surface');
+      } else {
+        const speechText = "Review your journey and confirm payment. Step 4 of 4. Total to pay is 2,645 Rupees. Train: 22691 SBC New Delhi Rajdhani Express from Bengaluru City Junction to New Delhi. Passenger Ramesh Chandra Sharma with confirmed Sahayak and Battery Cart assistance.";
+        const utterance = new SpeechSynthesisUtterance(speechText);
+        utterance.rate = 0.9;
+        utterance.onend = () => {
+          isSpeaking = false;
+          icon.innerText = 'volume_up';
+          text.innerText = 'Listen to this page';
+          btn.classList.remove('bg-primary', 'text-on-primary');
+          btn.classList.add('bg-surface-container-lowest', 'text-on-surface');
+        };
+        window.speechSynthesis.speak(utterance);
+        isSpeaking = true;
+        icon.innerText = 'stop_circle';
+        text.innerText = 'Stop listening';
+        btn.classList.add('bg-primary', 'text-on-primary');
+        btn.classList.remove('bg-surface-container-lowest', 'text-on-surface');
+      }
+    }
+  </script>
+</body></html>

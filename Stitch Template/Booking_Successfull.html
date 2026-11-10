@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}
+::-webkit-scrollbar{display:none;}
+
+/* Delightful & Calm Entrance Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gentleBreathing {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 14px rgba(0, 79, 56, 0.25);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(0, 79, 56, 0.38);
+  }
+}
+
+@keyframes ringExpand {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+  70% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+@keyframes floatHelpline {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes livePulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.35);
+    opacity: 0.7;
+  }
+}
+
+@keyframes soundWave {
+  0%, 100% {
+    transform: scaleY(0.4);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+/* Stagger classes */
+.animate-cascade-1 { animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.05s both; }
+.animate-cascade-2 { animation: fadeInUp 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both; }
+.animate-cascade-3 { animation: fadeInUp 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both; }
+.animate-cascade-4 { animation: fadeInUp 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both; }
+.animate-cascade-5 { animation: fadeInUp 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.45s both; }
+.animate-cascade-6 { animation: fadeInUp 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.55s both; }
+.animate-cascade-7 { animation: fadeInUp 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.65s both; }
+.animate-cascade-8 { animation: fadeInUp 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.75s both; }
+
+/* Calming Badge Breathing */
+.hero-check-badge {
+  animation: gentleBreathing 3.6s ease-in-out infinite;
+}
+
+.hero-check-ring {
+  animation: ringExpand 2.8s cubic-bezier(0.2, 0.8, 0.4, 1) infinite;
+}
+
+.floating-helpline-btn {
+  animation: floatHelpline 4s ease-in-out infinite;
+}
+
+.live-pulse-dot {
+  animation: livePulse 2s ease-in-out infinite;
+}
+
+/* Sound wave bars for audio readout button */
+.wave-bar-1 { animation: soundWave 0.8s ease-in-out infinite 0.1s; }
+.wave-bar-2 { animation: soundWave 0.8s ease-in-out infinite 0.3s; }
+.wave-bar-3 { animation: soundWave 0.8s ease-in-out infinite 0.5s; }
+
+/* Interactive Step Card Hover Elevation */
+.step-card-hover {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.step-card-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 55, 176, 0.08);
+}
+
+/* Accessible Reduced Motion Guarantee */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .hero-check-badge, .hero-check-ring, .floating-helpline-btn, .live-pulse-dot, .step-card-hover:hover {
+    transform: none !important;
+    animation: none !important;
+  }
+}
+</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"secondary":"#516070","surface-bright":"#f9f9ff","secondary-container":"#d5e4f8","on-tertiary-fixed":"#002115","primary-container":"#1d4ed8","on-primary-fixed":"#001551","background":"#f9f9ff","on-surface":"#141b2b","tertiary-fixed":"#97f5cc","secondary-fixed":"#d5e4f8","on-tertiary":"#ffffff","secondary-fixed-dim":"#b9c8db","on-tertiary-container":"#89e7be","on-error":"#ffffff","surface-container-low":"#f1f3ff","surface-container-lowest":"#ffffff","primary-fixed-dim":"#b7c4ff","on-secondary":"#ffffff","surface":"#f9f9ff","on-tertiary-fixed-variant":"#00513a","surface-container":"#e9edff","surface-container-high":"#e1e8fd","on-background":"#141b2b","on-primary":"#ffffff","outline-variant":"#c4c5d7","on-secondary-fixed-variant":"#3a4858","inverse-primary":"#b7c4ff","outline":"#747686","surface-container-highest":"#dce2f7","on-secondary-container":"#576676","on-error-container":"#93000a","on-primary-fixed-variant":"#0039b5","inverse-surface":"#293040","on-surface-variant":"#434655","on-secondary-fixed":"#0e1d2b","primary-fixed":"#dce1ff","error-container":"#ffdad6","primary":"#0037b0","on-primary-container":"#cad3ff","tertiary-container":"#00694c","surface-variant":"#dce2f7","error":"#ba1a1a","surface-tint":"#2151da","inverse-on-surface":"#edf0ff","tertiary":"#004f38","surface-dim":"#d3daef","tertiary-fixed-dim":"#7bd8b1"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-xs":"0.375rem","space-sm":"0.75rem","space-md":"1.25rem","gutter-mobile":"1rem","space-lg":"2rem","margin-mobile":"1rem","gutter":"1.5rem","margin":"2rem","space-xl":"3rem"},"fontFamily":{"label-md":["Atkinson Hyperlegible Next"],"headline-xl-mobile":["Atkinson Hyperlegible Next"],"label-sm":["Atkinson Hyperlegible Next"],"headline-lg":["Atkinson Hyperlegible Next"],"label-lg":["Atkinson Hyperlegible Next"],"body-lg":["Atkinson Hyperlegible Next"],"body-xl":["Atkinson Hyperlegible Next"],"headline-lg-mobile":["Atkinson Hyperlegible Next"],"body-md":["Atkinson Hyperlegible Next"],"headline-sm":["Atkinson Hyperlegible Next"],"headline-md":["Atkinson Hyperlegible Next"],"headline-xl":["Atkinson Hyperlegible Next"]},"fontSize":{"label-md":["18px",{"lineHeight":"24px","fontWeight":"600"}],"headline-xl-mobile":["30px",{"lineHeight":"38px","letterSpacing":"-0.01em","fontWeight":"700"}],"label-sm":["16px",{"lineHeight":"22px","fontWeight":"600"}],"headline-lg":["30px",{"lineHeight":"40px","fontWeight":"700"}],"label-lg":["20px",{"lineHeight":"26px","fontWeight":"700"}],"body-lg":["20px",{"lineHeight":"30px","fontWeight":"400"}],"body-xl":["22px",{"lineHeight":"34px","fontWeight":"400"}],"headline-lg-mobile":["24px",{"lineHeight":"32px","fontWeight":"700"}],"body-md":["18px",{"lineHeight":"28px","fontWeight":"400"}],"headline-sm":["21px",{"lineHeight":"28px","fontWeight":"700"}],"headline-md":["24px",{"lineHeight":"32px","fontWeight":"700"}],"headline-xl":["38px",{"lineHeight":"48px","letterSpacing":"-0.01em","fontWeight":"700"}]}}}}</script></head><body class="bg-surface font-body-lg text-body-lg text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.06)]"><div class="h-20 max-w-7xl mx-auto px-6 flex items-center justify-between gap-6"><div class="flex items-center gap-4"><img alt="EasyRail Logo" class="h-8 w-auto object-contain transition-transform duration-200 hover:scale-105" src="https://lh3.googleusercontent.com/aida/ALJJyrAmWXXweFSir4MCfURWCNXr2fu-ttFtSUwiNGXfalVZKsJ7MJSS3RDpZSd1Zb8pZPf7to8cBeV-QOqros1A8DoVFyTEIZ3p8BJfyIShKfkEk1IXVQuPqYbc1V-pip5DqfG_KJS3X0YKKd_2mxTk9ZtufoH17FDP4J5Ov9HuUebehNaFGI9bwMDNcnTYiEt0h9llk1t1DyvOuC9t70JqWuoKdL0y0q2T07XPD68Ngjx-3w"/><span class="hidden sm:inline-block font-label-md text-label-md text-on-surface-variant border-l-2 border-outline-variant pl-4">Train tickets made simple</span></div><nav class="hidden lg:flex items-center gap-2" data-active-classes="bg-surface-container text-primary font-bold"><a class="px-4 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors active:scale-95" data-path="book-tickets" href="#">Book Tickets</a><a class="px-4 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors active:scale-95" data-path="my-journeys" href="#">My Journeys</a><a class="px-4 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors active:scale-95" data-path="station-assistance" href="#">Station Assistance</a></nav><div class="flex items-center gap-4"><!-- Language Toggle --><button aria-label="Toggle language English or Hindi" class="min-h-[44px] px-3.5 flex items-center justify-center gap-1.5 rounded-lg border-2 border-outline-variant bg-surface-container-low hover:bg-surface-container hover:border-primary/40 text-on-surface font-label-md text-label-md font-bold transition-all active:scale-95"><span class="material-symbols-outlined text-lg">translate</span><span>EN / हिं</span></button><div class="flex items-center gap-1 bg-surface-container-low px-3 py-1.5 rounded-lg border-2 border-outline-variant"><span class="font-label-sm text-label-sm text-on-surface font-bold mr-1">Text size:</span><button aria-label="Decrease text size" class="min-h-[44px] min-w-[44px] flex items-center justify-center bg-surface-container-lowest rounded border border-outline text-on-surface font-label-md text-label-md hover:bg-surface-container hover:border-primary active:scale-95 transition-all shadow-sm" type="button">A-</button><button aria-label="Increase text size" class="min-h-[44px] min-w-[44px] flex items-center justify-center bg-surface-container-lowest rounded border border-outline text-on-surface font-label-md text-label-md hover:bg-surface-container hover:border-primary active:scale-95 transition-all shadow-sm" type="button">A+</button></div><a class="hidden md:flex items-center gap-2 px-4 py-2 min-h-[48px] rounded-lg bg-surface-container text-primary font-label-md text-label-md border-2 border-primary/20 hover:bg-surface-container-high hover:border-primary hover:shadow-sm active:scale-95 transition-all" href="tel:139"><span class="material-symbols-outlined text-primary font-bold">call</span><span>Railway Helpline: 139</span></a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center transition-transform hover:scale-110"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div><div class="bg-surface-container-low border-t border-outline-variant"><div class="h-16 max-w-7xl mx-auto px-6 flex items-center justify-between gap-4"><button class="min-h-[48px] px-5 flex items-center gap-2 rounded-lg bg-surface-container-lowest border-2 border-outline text-on-surface font-label-md text-label-md hover:bg-surface-container-high hover:border-primary transition-all active:scale-95 shadow-sm" onclick="history.back()" type="button"><span class="material-symbols-outlined font-bold transition-transform group-hover:-translate-x-1">arrow_back</span><span>Back to Previous Step</span></button><div class="flex items-center gap-4"><span class="font-label-md text-label-md text-on-surface font-bold">Step 4 of 4: Booking Confirmed</span><div class="w-36 sm:w-48 h-3.5 bg-surface-container-highest rounded-full overflow-hidden border border-outline-variant"><div class="bg-tertiary-container h-full w-full rounded-full transition-all duration-1000 ease-out"></div></div></div></div></div></header><main class="w-full pt-36 bg-surface"><div class="flex flex-col w-full">
+<!-- Audio Readout Accessibility Banner & Status Bar (Cascading reveal 1) -->
+<div class="w-full bg-surface-container-low py-4 px-6 animate-cascade-1 border-b border-outline-variant/40">
+<div class="max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-tertiary-container text-on-tertiary font-label-md text-label-md shadow-sm transition-transform duration-200 hover:scale-[1.02]">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>✓ IRCTC Booking Complete • Ticket Confirmed (CNF)</span>
+</span>
+</div>
+<button aria-label="Listen to this page read out loud" class="group min-h-[56px] px-6 py-2.5 rounded-xl bg-surface-container-lowest text-primary border-2 border-outline-variant hover:border-primary font-label-md text-label-md flex items-center justify-center gap-3 shadow-sm hover:shadow-md hover:bg-surface-container-high transition-all active:scale-[0.97] text-center" id="audio-readout-btn" onclick="toggleAudioReadout()">
+<div class="relative flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl text-primary transition-transform group-hover:scale-110" id="audio-icon">volume_up</span>
+<!-- Animated Audio Wave Indicator Bars on Hover/Active -->
+<div class="hidden group-hover:flex items-center gap-0.5 ml-1 h-4" id="audio-wave-bars">
+<span class="w-1 h-3 bg-primary rounded-full wave-bar-1"></span>
+<span class="w-1 h-4 bg-primary rounded-full wave-bar-2"></span>
+<span class="w-1 h-2 bg-primary rounded-full wave-bar-3"></span>
+</div>
+</div>
+<span id="audio-text">Listen to this confirmation</span>
+</button>
+</div>
+</div>
+<!-- Main Content Flow (Narrow Central Container for Cognitive Ease) -->
+<div class="w-full max-w-3xl mx-auto px-4 sm:px-6 py-8 flex flex-col gap-6">
+<!-- Celebratory Reassurance Header Card (Cascading reveal 2) -->
+<div class="rounded-2xl bg-surface-container-lowest p-6 sm:p-8 shadow-sm flex flex-col items-center text-center gap-4 animate-cascade-2 transition-all duration-300 hover:shadow-md border border-outline-variant/30">
+<!-- Reassuring Green Success Badge with gentle ripple ring -->
+<div class="relative flex items-center justify-center my-1">
+<div class="absolute w-20 h-20 rounded-full bg-tertiary-container/30 hero-check-ring pointer-events-none"></div>
+<div class="w-20 h-20 rounded-full bg-tertiary-container text-on-tertiary flex items-center justify-center shadow-md hero-check-badge">
+<span class="material-symbols-outlined text-5xl" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<h1 class="font-headline-xl text-headline-xl text-on-surface">Your train ticket is booked and confirmed!</h1>
+<p class="font-body-xl text-body-xl text-on-surface-variant max-w-2xl">
+          We have sent your official Indian Railways e-ticket and receipt to <span class="font-bold text-on-surface">ramesh.sharma@example.com</span> and via SMS &amp; WhatsApp to <span class="font-bold text-on-surface">+91 98450 12345</span>.
+        </p>
+</div>
+<!-- Quick Delivery Notification Chip -->
+<div class="w-full rounded-xl bg-surface-container p-4 flex items-start sm:items-center gap-3 text-left transition-colors duration-200 hover:bg-surface-container-high border border-outline-variant/30">
+<span class="text-2xl shrink-0">📱</span>
+<span class="font-body-md text-body-md text-on-surface">You do not need a computer or physical printout. Showing this digital m-ticket or SMS with your original Aadhaar card is valid during travel.</span>
+</div>
+</div>
+<!-- Prominent 10-Digit PNR & Ticket Pass Card (Cascading reveal 3) -->
+<div class="rounded-2xl bg-surface-container-lowest p-6 sm:p-8 shadow-md flex flex-col gap-6 animate-cascade-3 transition-all duration-300 hover:shadow-lg border border-outline-variant/30">
+<div class="flex flex-col md:flex-row items-stretch justify-between gap-6">
+<!-- PNR Reference Code Section -->
+<div class="flex-1 flex flex-col justify-between gap-4">
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between flex-wrap gap-2">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-bold">YOUR 10-DIGIT PNR NUMBER</span>
+<span class="px-3 py-1 rounded-full bg-tertiary-container text-on-tertiary font-label-sm text-label-sm font-bold flex items-center gap-1.5 shadow-sm">
+<span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span>BOOKING STATUS: CNF (CONFIRMED)</span>
+</span>
+</div>
+<div class="flex items-center gap-3 flex-wrap mt-1">
+<span class="font-headline-xl text-headline-xl text-primary font-black font-mono tracking-widest bg-surface-container-high px-5 py-2.5 rounded-xl border border-primary/20 shadow-inner select-all" id="pnr-code">4521 897 365</span>
+</div>
+<!-- Coach & Berth Pill -->
+<div class="p-3 bg-surface-container-low rounded-xl border-l-4 border-tertiary-container flex items-center gap-2 mt-2 transition-transform duration-200 hover:translate-x-1">
+<span class="material-symbols-outlined text-tertiary text-2xl" style="font-variation-settings: 'FILL' 1;">airline_seat_recline_normal</span>
+<span class="font-label-lg text-label-lg text-on-surface font-bold">Coach B2 • Berth 34 (Lower Berth, Non-Ladder Access)</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Keep this 10-digit PNR handy for coach chart verification, IRCTC SMS, and boarding.
+            </p>
+</div>
+<!-- Copy PNR Button (56px tall for steady touch with tactile click feedback) -->
+<button class="min-h-[56px] w-full sm:w-auto px-6 py-3 rounded-xl bg-surface-container border-2 border-outline-variant hover:border-primary text-on-surface font-label-md text-label-md flex items-center justify-center gap-3 hover:bg-surface-container-high hover:shadow-sm active:scale-[0.97] transition-all duration-150" id="copy-btn" onclick="copyPnr()">
+<span class="material-symbols-outlined text-2xl text-primary transition-transform duration-200 group-hover:scale-110" id="copy-icon">content_copy</span>
+<span id="copy-text">Copy PNR</span>
+</button>
+</div>
+<!-- High-Contrast QR Code Boarding Box -->
+<div class="w-full md:w-64 rounded-xl bg-surface-container-low p-5 flex flex-col items-center justify-center text-center gap-3 shrink-0 border border-outline-variant/40 transition-transform duration-300 hover:scale-[1.02]">
+<span class="font-label-sm text-label-sm text-on-surface font-bold">Fast Boarding Pass</span>
+<!-- Inline High-Contrast Accessible QR Simulation -->
+<div class="w-40 h-40 bg-surface-container-lowest p-3 rounded-lg shadow-sm flex items-center justify-center border border-outline-variant transition-shadow hover:shadow-md">
+<svg class="w-full h-full text-on-surface" fill="currentColor" viewbox="0 0 100 100">
+<!-- Corner Finder 1 -->
+<rect height="30" rx="3" width="30" x="0" y="0"></rect>
+<rect fill="#ffffff" height="20" width="20" x="5" y="5"></rect>
+<rect height="10" width="10" x="10" y="10"></rect>
+<!-- Corner Finder 2 -->
+<rect height="30" rx="3" width="30" x="70" y="0"></rect>
+<rect fill="#ffffff" height="20" width="20" x="75" y="5"></rect>
+<rect height="10" width="10" x="80" y="10"></rect>
+<!-- Corner Finder 3 -->
+<rect height="30" rx="3" width="30" x="0" y="70"></rect>
+<rect fill="#ffffff" height="20" width="20" x="5" y="75"></rect>
+<rect height="10" width="10" x="10" y="80"></rect>
+<!-- QR Data Blocks -->
+<rect height="8" width="8" x="36" y="6"></rect>
+<rect height="6" width="12" x="50" y="6"></rect>
+<rect height="8" width="16" x="36" y="20"></rect>
+<rect height="16" width="8" x="56" y="20"></rect>
+<rect height="12" width="12" x="12" y="38"></rect>
+<rect height="8" width="14" x="30" y="36"></rect>
+<rect height="18" width="18" x="48" y="36"></rect>
+<rect height="10" width="10" x="72" y="38"></rect>
+<rect height="18" width="8" x="86" y="38"></rect>
+<rect height="8" width="18" x="6" y="56"></rect>
+<rect height="18" width="10" x="32" y="52"></rect>
+<rect height="14" width="8" x="72" y="56"></rect>
+<rect height="16" width="14" x="38" y="76"></rect>
+<rect height="10" width="12" x="58" y="72"></rect>
+<rect height="18" width="18" x="76" y="76"></rect>
+</svg>
+</div>
+<span class="font-body-md text-body-md text-on-surface-variant font-medium">
+            IRCTC Ticket Validation QR • Show to TTE on demand
+          </span>
+</div>
+</div>
+</div>
+<!-- Free Sahayak & Battery Car Assistance Card (Cascading reveal 4) -->
+<div class="rounded-2xl bg-tertiary text-on-tertiary p-6 sm:p-7 shadow-md flex flex-col gap-4 animate-cascade-4 transition-all duration-300 hover:shadow-lg">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-tertiary-container flex items-center justify-center shrink-0 transition-transform duration-200 hover:scale-110">
+<span class="material-symbols-outlined text-3xl text-on-tertiary" style="font-variation-settings: 'FILL' 1;">accessible_forward</span>
+</div>
+<div>
+<span class="font-label-lg text-label-lg text-on-tertiary">Free Sahayak &amp; Battery Car Confirmed</span>
+<p class="font-body-md text-body-md text-on-tertiary-container">Special senior citizen station assistance booked at ₹0 extra fee</p>
+</div>
+</div>
+<div class="rounded-xl bg-surface-container-lowest/15 p-4 text-on-tertiary font-body-lg text-body-lg leading-relaxed border border-white/10 transition-colors hover:bg-surface-container-lowest/20">
+        A Sahayak (porter) will meet <strong>Mr. Ramesh Sharma</strong> at <strong>SBC Platform 8 Main Porch at 19:15</strong> with wheelchair/battery cart. They will assist with your baggage and guide you step-free directly to Coach B2.
+      </div>
+</div>
+<!-- Trip Details Summary Card (Cascading reveal 5) -->
+<div class="rounded-2xl bg-surface-container-lowest p-6 sm:p-8 shadow-sm flex flex-col gap-6 animate-cascade-5 transition-all duration-300 hover:shadow-md border border-outline-variant/30">
+<div class="flex items-center justify-between border-b border-outline-variant/40 pb-4 flex-wrap gap-2">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl transition-transform duration-200 hover:scale-110">train</span>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">22691 SBC NDLS Rajdhani Express</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Indian Railways Superfast Premium Service</p>
+</div>
+</div>
+<span class="px-3.5 py-1.5 rounded-full bg-secondary-container text-on-secondary-fixed font-label-md text-label-md font-bold">
+          AC 3 Tier (3A)
+        </span>
+</div>
+<!-- Departure & Arrival Blocks -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-surface-container-low p-5 rounded-xl border border-outline-variant/40">
+<!-- Bengaluru City Departure -->
+<div class="flex flex-col gap-1 transition-transform duration-200 hover:translate-x-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase font-bold">Departs From</span>
+<span class="font-headline-md text-headline-md text-primary font-bold">20:00 (8:00 PM)</span>
+<span class="font-label-lg text-label-lg text-on-surface font-bold">Bengaluru City Jn (SBC)</span>
+<span class="font-body-md text-body-md text-on-surface-variant">12-11-2026, Thursday</span>
+<div class="flex items-center gap-2 mt-2">
+<span class="inline-flex px-3 py-1 rounded bg-surface-container-highest text-on-surface font-label-md text-label-md font-bold shadow-xs">Platform 8</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Main Porch / Ramp entry</span>
+</div>
+</div>
+<!-- New Delhi Arrival -->
+<div class="flex flex-col gap-1 transition-transform duration-200 hover:translate-x-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase font-bold">Arrives At</span>
+<span class="font-headline-md text-headline-md text-on-surface font-bold">05:55 (+2 days)</span>
+<span class="font-label-lg text-label-lg text-on-surface font-bold">New Delhi (NDLS)</span>
+<span class="font-body-md text-body-md text-on-surface-variant">14-11-2026, Saturday</span>
+<div class="flex items-center gap-2 mt-2">
+<span class="inline-flex px-3 py-1 rounded bg-surface-container-highest text-on-surface font-label-md text-label-md font-bold shadow-xs">Platform 3</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Duration: 33 hrs 55 mins</span>
+</div>
+</div>
+</div>
+<!-- Passenger & Seat Allocation Breakdown -->
+<div class="flex flex-col gap-4">
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 p-3.5 bg-surface rounded-xl border border-outline-variant hover:border-primary/50 transition-colors">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-2xl">person</span>
+<div>
+<span class="font-label-md text-label-md text-on-surface font-bold">Passenger Details</span>
+<p class="font-body-md text-body-md text-on-surface-variant">Ramesh Chandra Sharma (Male, Age 64 • Senior Quota)</p>
+</div>
+</div>
+<span class="px-3 py-1 bg-surface-container-highest rounded-lg text-on-surface-variant font-label-sm text-label-sm font-semibold">
+            Senior Citizen Concession Quota
+          </span>
+</div>
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 p-3.5 bg-surface rounded-xl border border-outline-variant hover:border-primary/50 transition-colors">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-2xl">airline_seat_recline_extra</span>
+<div>
+<span class="font-label-md text-label-md text-on-surface font-bold">Reserved Berth &amp; Coach</span>
+<p class="font-body-md text-body-md text-on-surface-variant">Coach B2 • Berth 34 (Lower Berth, Non-Ladder Access)</p>
+</div>
+</div>
+<span class="px-3 py-1 bg-tertiary-container/15 text-tertiary rounded-lg font-label-sm text-label-sm font-bold">
+            Lower Berth Confirmed
+          </span>
+</div>
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 p-3.5 bg-surface rounded-xl border border-outline-variant hover:border-primary/50 transition-colors">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-2xl">calendar_today</span>
+<div>
+<span class="font-label-md text-label-md text-on-surface font-bold">Date of Journey</span>
+<p class="font-body-md text-body-md text-on-surface-variant">Thursday, 12 November 2026</p>
+</div>
+</div>
+<span class="font-body-md text-body-md text-on-surface-variant">Meals Included: Dinner, Breakfast, Lunch</span>
+</div>
+</div>
+<!-- Payment & Guarantee Badge -->
+<div class="rounded-xl bg-surface-container-low p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border border-outline-variant/30">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-bold">Total Fare Paid</span>
+<span class="font-headline-lg text-headline-lg text-on-surface font-bold">₹2,645</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Paid via UPI (Google Pay / PhonePe) • Transaction ID: IR784920194</span>
+</div>
+<div class="flex items-center gap-2 text-tertiary font-label-md text-label-md">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span>IRCTC Verified E-Ticket</span>
+</div>
+</div>
+</div>
+<!-- Action Buttons Group (Minimum 56px height, high visual contrast & tactile feedback - Cascading reveal 6) -->
+<div class="flex flex-col gap-4 animate-cascade-6">
+<!-- Primary: Download E-Ticket (PDF) -->
+<button class="group min-h-[56px] w-full px-6 py-4 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg flex items-center justify-center gap-3 shadow-md hover:bg-primary-container hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] transition-all duration-150 text-center" onclick="triggerPrint()">
+<span class="material-symbols-outlined text-3xl transition-transform duration-200 group-hover:translate-y-0.5">download</span>
+<span>Download E-Ticket (PDF)</span>
+</button>
+<!-- Secondary: Share on WhatsApp -->
+<button class="group min-h-[56px] w-full px-6 py-4 rounded-xl bg-[#25D366] text-white font-label-lg text-label-lg flex items-center justify-center gap-3 shadow hover:bg-[#1EBE5D] hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] transition-all duration-150 text-center" onclick="shareOnWhatsApp()">
+<svg class="w-7 h-7 fill-current transition-transform duration-200 group-hover:scale-110" viewbox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.586-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.96-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.199.534 1.286.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.353.101.173.45 1.009 1.104 1.583.58.51 1.07.671 1.243.743.173.072.274.058.375-.058.101-.116.433-.505.549-.679.116-.173.231-.144.39-.087s1.011.477 1.184.563c.173.087.289.13.332.202.043.073.043.419-.101.824zM12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.662 1.435 5.178L2 22l4.957-1.399C8.38 21.498 10.134 22 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.2c-1.637 0-3.155-.48-4.437-1.309l-.318-.205-2.956.834.845-2.883-.223-.332A8.17 8.17 0 0 1 3.8 12c0-4.521 3.679-8.2 8.2-8.2 4.521 0 8.2 3.679 8.2 8.2 0 4.521-3.679 8.2-8.2 8.2z"></path></svg>
+<span>Share on WhatsApp</span>
+</button>
+<!-- Tertiary: Book another journey -->
+<button class="group min-h-[56px] w-full px-6 py-4 rounded-xl bg-surface-container-lowest text-on-surface font-label-md text-label-md flex items-center justify-center gap-2 hover:bg-surface-container-high hover:border-primary transition-all duration-150 active:scale-[0.98] text-center border-2 border-outline-variant shadow-xs" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+<span class="material-symbols-outlined text-2xl text-primary transition-transform duration-200 group-hover:scale-110">train</span>
+<span>Book another train journey</span>
+</button>
+</div>
+<!-- Reassurance: What happens next? (3 simple visual steps with interactive lift - Cascading reveal 7) -->
+<div class="rounded-2xl bg-surface-container-lowest p-6 sm:p-8 shadow-sm flex flex-col gap-6 animate-cascade-7 border border-outline-variant/30">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl">lightbulb</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">What happens next?</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<!-- Step 1 -->
+<div class="step-card-hover rounded-xl bg-surface-container-low p-5 flex flex-col gap-3 border border-outline-variant/30 cursor-default">
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center font-headline-sm text-headline-sm font-bold shadow-xs">
+            1
+          </div>
+<span class="font-label-md text-label-md text-on-surface font-bold">Keep ID handy</span>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Keep your original Aadhaar Card or Voter ID ready, along with the SMS / WhatsApp e-ticket on your mobile phone.
+          </p>
+</div>
+<!-- Step 2 -->
+<div class="step-card-hover rounded-xl bg-surface-container-low p-5 flex flex-col gap-3 border border-outline-variant/30 cursor-default">
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center font-headline-sm text-headline-sm font-bold shadow-xs">
+            2
+          </div>
+<span class="font-label-md text-label-md text-on-surface font-bold">Arrive 30 mins early</span>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Arrive by <strong>19:15</strong> at SBC Station Platform 8 battery cart counter to meet your booked Sahayak assistant.
+          </p>
+</div>
+<!-- Step 3 -->
+<div class="step-card-hover rounded-xl bg-surface-container-low p-5 flex flex-col gap-3 border border-outline-variant/30 cursor-default">
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center font-headline-sm text-headline-sm font-bold shadow-xs">
+            3
+          </div>
+<span class="font-label-md text-label-md text-on-surface font-bold">Board Coach B2 easily</span>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Board Coach B2 directly to Berth 34 (Lower Berth) with zero stairs or ladder climbing required.
+          </p>
+</div>
+</div>
+</div>
+<!-- Indian Railways 139 Helpline Banner (Cascading reveal 8) -->
+<div class="rounded-2xl bg-surface-container-highest p-6 mb-8 flex flex-col sm:flex-row items-center justify-between gap-4 animate-cascade-8 border border-outline-variant/40 shadow-xs transition-shadow hover:shadow-md">
+<div class="flex items-center gap-4 text-center sm:text-left">
+<div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-4xl">support_agent</span>
+</div>
+<div>
+<span class="font-label-lg text-label-lg text-on-surface font-bold">Indian Railways Helpline 139 (Rail Madad)</span>
+<p class="font-body-md text-body-md text-on-surface-variant">Toll-free 24/7 round-the-clock support in 12 languages for PNR status, wheelchair requests, and security assistance.</p>
+</div>
+</div>
+<a class="group min-h-[56px] px-6 py-3 rounded-xl bg-primary text-on-primary font-label-md text-label-md shrink-0 flex items-center justify-center gap-2 shadow hover:bg-primary-container hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-all" href="tel:139">
+<span class="material-symbols-outlined text-2xl font-bold transition-transform duration-200 group-hover:scale-110">call</span>
+<span>Dial 139 Toll-Free</span>
+</a>
+</div>
+</div>
+<!-- Accessible Toast Alert for Action Feedback -->
+<div aria-live="polite" class="fixed top-24 left-1/2 transform -translate-x-1/2 z-50 hidden px-6 py-4 rounded-xl bg-surface-container-highest text-on-surface font-label-md text-label-md shadow-xl flex items-center gap-3 transition-all border-2 border-primary/20" id="status-toast" role="status">
+<span class="material-symbols-outlined text-primary text-2xl" id="toast-icon">check_circle</span>
+<span id="toast-message">10-Digit PNR copied to clipboard</span>
+</div>
+<script>
+    // Copy 10-digit PNR Reference with accessible feedback & tactile button states
+    function copyPnr() {
+      const code = "4521 897 365";
+      const cleanCode = code.replace(/\s+/g, '').trim();
+      const copyBtn = document.getElementById('copy-btn');
+      const copyText = document.getElementById('copy-text');
+      const copyIcon = document.getElementById('copy-icon');
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(cleanCode).then(() => {
+          triggerCopiedState();
+        }).catch(() => {
+          fallbackCopy(cleanCode);
+        });
+      } else {
+        fallbackCopy(cleanCode);
+      }
+
+      function triggerCopiedState() {
+        showToast('PNR Number 4521897365 copied to clipboard');
+        copyText.innerText = '✓ Copied!';
+        copyIcon.innerText = 'check';
+        copyBtn.classList.add('bg-tertiary-container/15', 'border-tertiary');
+        setTimeout(() => {
+          copyText.innerText = 'Copy PNR';
+          copyIcon.innerText = 'content_copy';
+          copyBtn.classList.remove('bg-tertiary-container/15', 'border-tertiary');
+        }, 3000);
+      }
+
+      function fallbackCopy(text) {
+        const tempInput = document.createElement('input');
+        tempInput.value = text;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        try {
+          document.execCommand('copy');
+          triggerCopiedState();
+        } catch (e) {
+          showToast('PNR: ' + text);
+        }
+        document.body.removeChild(tempInput);
+      }
+    }
+
+    // Trigger Print / PDF download
+    function triggerPrint() {
+      window.print();
+    }
+
+    // Share via WhatsApp
+    function shareOnWhatsApp() {
+      const pnr = "4521897365";
+      const train = "22691 SBC NDLS Rajdhani Exp";
+      const berth = "Coach B2, Berth 34 (Lower Berth)";
+      const dep = "SBC at 20:00 (12-Nov-2026)";
+      const text = encodeURIComponent(`EasyRail Ticket Confirmed!\nPNR: ${pnr}\nTrain: ${train}\nDeparture: ${dep}\nSeat: ${berth}\nPassenger: Ramesh Chandra Sharma`);
+      window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
+      showToast('Opening WhatsApp to share ticket details');
+    }
+
+    // Audio Readout Feature in clear spoken English with animated icon state
+    let isSpeaking = false;
+    function toggleAudioReadout() {
+      const btnText = document.getElementById('audio-text');
+      const icon = document.getElementById('audio-icon');
+      const waveBars = document.getElementById('audio-wave-bars');
+
+      if (!('speechSynthesis' in window)) {
+        showToast('Speech audio is not supported in this browser.');
+        return;
+      }
+
+      if (isSpeaking) {
+        window.speechSynthesis.cancel();
+        isSpeaking = false;
+        btnText.innerText = 'Listen to this confirmation';
+        icon.innerText = 'volume_up';
+        if (waveBars) waveBars.classList.add('hidden');
+      } else {
+        const textToRead = "Namaste Ramesh ji. Your train ticket on the Rajdhani Express is confirmed! Your ten digit P N R number is 4 5 2 1, 8 9 7, 3 6 5. You are travelling in Coach B 2, Lower Berth 34. Departure is from Bengaluru City Junction Platform 8 at 8:00 PM on Thursday, 12 November. Your free Sahayak porter and battery cart assistance is confirmed at Platform 8 porch at 7:15 PM.";
+        const utterance = new SpeechSynthesisUtterance(textToRead);
+        utterance.rate = 0.85;
+        utterance.onend = () => {
+          isSpeaking = false;
+          btnText.innerText = 'Listen to this confirmation';
+          icon.innerText = 'volume_up';
+          if (waveBars) waveBars.classList.add('hidden');
+        };
+        window.speechSynthesis.speak(utterance);
+        isSpeaking = true;
+        btnText.innerText = 'Pause reading aloud';
+        icon.innerText = 'pause_circle';
+        if (waveBars) waveBars.classList.remove('hidden');
+      }
+    }
+
+    // Accessible toast helper
+    function showToast(message) {
+      const toast = document.getElementById('status-toast');
+      const toastMessage = document.getElementById('toast-message');
+      toastMessage.innerText = message;
+      toast.classList.remove('hidden');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 4000);
+    }
+  </script>
+</div></main><!-- Floating 139 Helpline Floating Assist with calming vertical motion & live indicator --><aside class="fixed bottom-6 right-6 z-40"><a aria-label="Railway Helpline 139 (Toll-Free, 24/7 in 12 languages)" class="floating-helpline-btn min-h-[64px] px-6 py-3 flex items-center gap-3 bg-primary text-on-primary rounded-full shadow-[0_8px_24px_rgba(0,55,176,0.32)] hover:bg-primary-container hover:shadow-[0_10px_28px_rgba(0,55,176,0.45)] active:scale-95 transition-all border-2 border-surface-container-lowest" href="tel:139" role="button"><div class="relative flex items-center justify-center"><span class="material-symbols-outlined text-[28px]">support_agent</span><span class="live-pulse-dot absolute -top-1 -right-1 w-3 h-3 bg-tertiary-fixed rounded-full border-2 border-primary"></span></div><div class="flex flex-col text-left"><span class="font-label-lg text-label-lg leading-tight text-on-primary">Railway Helpline 139</span><span class="font-label-sm text-label-sm text-on-primary-container">Toll-Free • 24/7 in 12 Languages</span></div></a></aside><footer class="w-full bg-surface-container-lowest border-t-2 border-outline-variant py-10"><div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6"><div class="flex flex-col items-center md:items-start gap-1"><span class="font-headline-sm text-headline-sm text-on-surface font-bold">EasyRail</span><p class="font-body-md text-body-md text-on-surface-variant">Reassuring, accessible, and simple train travel in partnership with Indian Railways.</p></div><div class="flex items-center gap-6 font-label-md text-label-md text-on-surface-variant flex-wrap justify-center"><a class="hover:text-primary hover:underline transition-colors" href="#">IRCTC Help &amp; Rules</a><a class="hover:text-primary hover:underline transition-colors" href="#">Senior Citizen Quota</a><a class="hover:text-primary hover:underline transition-colors" href="#">Divyangjan / Sahayak Booking</a><a class="hover:text-primary hover:underline transition-colors" href="#">Privacy &amp; Terms</a></div></div></footer></body></html>

@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="web_standard" name="shell-type"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    @layer base {
+      html, body { margin: 0; padding: 0; }
+      body { overscroll-behavior: none; }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { display: none; }
+
+    /* Custom Animations & Micro-interactions */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes progressGrow {
+      0% { width: 0%; }
+      100% { width: 25%; }
+    }
+
+    @keyframes shimmerBar {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(250%); }
+    }
+
+    @keyframes floatHelp {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    @keyframes pulsePingSlow {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.25); opacity: 0.2; }
+      100% { transform: scale(1.4); opacity: 0; }
+    }
+
+    @keyframes sheenSweep {
+      0% { transform: translateX(-150%) skewX(-20deg); }
+      30%, 100% { transform: translateX(250%) skewX(-20deg); }
+    }
+
+    .animate-fadeInUp {
+      animation: fadeInUp 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .anim-delay-1 { animation-delay: 0.05s; }
+    .anim-delay-2 { animation-delay: 0.12s; }
+    .anim-delay-3 { animation-delay: 0.18s; }
+    .anim-delay-4 { animation-delay: 0.24s; }
+    .anim-delay-5 { animation-delay: 0.30s; }
+    .anim-delay-6 { animation-delay: 0.36s; }
+    .anim-delay-7 { animation-delay: 0.42s; }
+
+    .progress-bar-fill {
+      animation: progressGrow 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .shimmer-runner {
+      animation: shimmerBar 2.5s infinite ease-in-out;
+    }
+
+    .float-widget {
+      animation: floatHelp 3.5s ease-in-out infinite;
+    }
+
+    .sheen-glow {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 40%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+      animation: sheenSweep 4s infinite ease-in-out;
+      pointer-events: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, ::before, ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .shimmer-runner, .sheen-glow, .float-widget {
+        animation: none !important;
+      }
+    }
+  </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary": "#ffffff",
+            "outline": "#747686",
+            "on-surface-variant": "#434655",
+            "surface-tint": "#2151da",
+            "surface-bright": "#f9f9ff",
+            "primary-fixed": "#dce1ff",
+            "surface-variant": "#dce2f7",
+            "primary": "#0037b0",
+            "secondary": "#516070",
+            "inverse-on-surface": "#edf0ff",
+            "on-background": "#141b2b",
+            "tertiary-fixed": "#97f5cc",
+            "primary-fixed-dim": "#b7c4ff",
+            "outline-variant": "#c4c5d7",
+            "on-primary-fixed-variant": "#0039b5",
+            "secondary-fixed-dim": "#b9c8db",
+            "on-secondary-fixed-variant": "#3a4858",
+            "on-tertiary-fixed": "#002115",
+            "on-tertiary-container": "#89e7be",
+            "background": "#f9f9ff",
+            "on-surface": "#141b2b",
+            "surface-container-low": "#f1f3ff",
+            "on-secondary-container": "#576676",
+            "surface-container": "#e9edff",
+            "surface": "#f9f9ff",
+            "on-tertiary-fixed-variant": "#00513a",
+            "error-container": "#ffdad6",
+            "inverse-primary": "#b7c4ff",
+            "surface-container-high": "#e1e8fd",
+            "secondary-container": "#d5e4f8",
+            "primary-container": "#1d4ed8",
+            "on-primary-fixed": "#001551",
+            "on-secondary-fixed": "#0e1d2b",
+            "surface-dim": "#d3daef",
+            "on-error": "#ffffff",
+            "tertiary": "#004f38",
+            "surface-container-highest": "#dce2f7",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "inverse-surface": "#293040",
+            "secondary-fixed": "#d5e4f8",
+            "tertiary-fixed-dim": "#7bd8b1",
+            "tertiary-container": "#00694c",
+            "on-error-container": "#93000a",
+            "error": "#ba1a1a",
+            "on-primary-container": "#cad3ff",
+            "on-primary": "#ffffff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-mobile": "1rem",
+            "gutter": "1.5rem",
+            "gutter-mobile": "1rem",
+            "margin": "2rem",
+            "space-xs": "0.375rem",
+            "space-sm": "0.75rem",
+            "space-xl": "3rem",
+            "space-lg": "2rem",
+            "space-md": "1.25rem"
+          },
+          "fontFamily": {
+            "headline-xl-mobile": ["Atkinson Hyperlegible Next"],
+            "headline-sm": ["Atkinson Hyperlegible Next"],
+            "body-md": ["Atkinson Hyperlegible Next"],
+            "headline-md": ["Atkinson Hyperlegible Next"],
+            "label-sm": ["Atkinson Hyperlegible Next"],
+            "label-lg": ["Atkinson Hyperlegible Next"],
+            "label-md": ["Atkinson Hyperlegible Next"],
+            "body-lg": ["Atkinson Hyperlegible Next"],
+            "headline-lg-mobile": ["Atkinson Hyperlegible Next"],
+            "body-xl": ["Atkinson Hyperlegible Next"],
+            "headline-xl": ["Atkinson Hyperlegible Next"],
+            "headline-lg": ["Atkinson Hyperlegible Next"]
+          },
+          "fontSize": {
+            "headline-xl-mobile": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-sm": ["21px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "body-md": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+            "label-sm": ["16px", { "lineHeight": "22px", "fontWeight": "600" }],
+            "label-lg": ["20px", { "lineHeight": "26px", "fontWeight": "700" }],
+            "label-md": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "body-lg": ["20px", { "lineHeight": "30px", "fontWeight": "400" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+            "body-xl": ["22px", { "lineHeight": "34px", "fontWeight": "400" }],
+            "headline-xl": ["38px", { "lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-lg": ["30px", { "lineHeight": "40px", "fontWeight": "700" }]
+          }
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-surface font-body-lg text-body-lg text-on-surface antialiased selection:bg-primary-fixed selection:text-primary">
+<!-- Top Header Navigation -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.06)] transition-all">
+<div class="h-20 max-w-7xl mx-auto px-6 flex items-center justify-between gap-6">
+<div class="flex items-center gap-4">
+<img alt="EasyRail Logo" class="h-8 w-auto object-contain transition-transform duration-200 hover:scale-105" src="https://lh3.googleusercontent.com/aida/ALJJyrAmWXXweFSir4MCfURWCNXr2fu-ttFtSUwiNGXfalVZKsJ7MJSS3RDpZSd1Zb8pZPf7to8cBeV-QOqros1A8DoVFyTEIZ3p8BJfyIShKfkEk1IXVQuPqYbc1V-pip5DqfG_KJS3X0YKKd_2mxTk9ZtufoH17FDP4J5Ov9HuUebehNaFGI9bwMDNcnTYiEt0h9llk1t1DyvOuC9t70JqWuoKdL0y0q2T07XPD68Ngjx-3w"/>
+<span class="hidden sm:inline-block font-label-md text-label-md text-on-surface-variant border-l-2 border-outline-variant pl-4">Train tickets made simple</span>
+</div>
+<nav class="hidden lg:flex items-center gap-2" data-active-classes="bg-surface-container text-primary font-bold">
+<a aria-current="page" class="px-4 py-2 rounded-lg transition-all duration-200 bg-surface-container text-primary font-bold shadow-sm" data-path="book-tickets" href="#">Book Tickets</a>
+<a class="px-4 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-200 hover:-translate-y-0.5" data-path="my-journeys" href="#">My Journeys</a>
+<a class="px-4 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-200 hover:-translate-y-0.5" data-path="station-assistance" href="#">Station Assistance</a>
+</nav>
+<div class="flex items-center gap-3">
+<!-- Language Switcher: English / Hindi -->
+<button aria-label="Toggle language between English and Hindi" class="min-h-[44px] px-3.5 flex items-center gap-1.5 bg-surface-container-low hover:bg-surface-container rounded-lg border-2 border-outline-variant text-on-surface font-label-md text-label-md font-bold transition-all duration-200 active:scale-95 hover:shadow-sm" id="langToggleBtn" onclick="toggleLanguage()">
+<span class="material-symbols-outlined text-[20px] text-primary transition-transform group-hover:rotate-12">translate</span>
+<span id="langText">EN / हिं</span>
+</button>
+<!-- Accessible Text Size Controls -->
+<div class="flex items-center gap-1 bg-surface-container-low px-3 py-1.5 rounded-lg border-2 border-outline-variant shadow-sm">
+<span class="font-label-sm text-label-sm text-on-surface font-bold mr-1">Text size:</span>
+<button aria-label="Decrease text size" class="min-h-[44px] min-w-[44px] flex items-center justify-center bg-surface-container-lowest rounded border border-outline text-on-surface font-label-md text-label-md hover:bg-surface-container active:scale-95 transition-all duration-150 hover:border-primary shadow-xs" type="button">A-</button>
+<button aria-label="Increase text size" class="min-h-[44px] min-w-[44px] flex items-center justify-center bg-surface-container-lowest rounded border border-outline text-on-surface font-label-md text-label-md hover:bg-surface-container active:scale-95 transition-all duration-150 hover:border-primary shadow-xs" type="button">A+</button>
+</div>
+<!-- Indian Railways Toll Free 139 -->
+<a class="hidden md:flex items-center gap-2 px-4 py-2 min-h-[48px] rounded-lg bg-surface-container text-primary font-label-md text-label-md border-2 border-primary/20 hover:bg-surface-container-high hover:border-primary transition-all duration-200 active:scale-98" href="tel:139">
+<span class="material-symbols-outlined text-primary">call</span>
+<span>Railway Helpline: 139 (Toll Free)</span>
+</a>
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-xs transition-transform duration-200 hover:scale-110">
+<span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
+</div>
+</div>
+</div>
+<!-- Sub-header Breadcrumb & Step Progress -->
+<div class="bg-surface-container-low border-t border-outline-variant">
+<div class="h-16 max-w-7xl mx-auto px-6 flex items-center justify-between gap-4">
+<button class="min-h-[48px] px-5 flex items-center gap-2 rounded-lg bg-surface-container-lowest border-2 border-outline text-on-surface font-label-md text-label-md hover:bg-surface-container-high hover:border-primary transition-all duration-200 active:scale-95 shadow-sm hover:shadow" onclick="history.back()" type="button">
+<span class="material-symbols-outlined font-bold transition-transform group-hover:-translate-x-1">arrow_back</span>
+<span>Back to Previous Step</span>
+</button>
+<div class="flex items-center gap-4">
+<span class="font-label-md text-label-md text-on-surface font-bold">Step 1 of 4: Search Indian Railways trains</span>
+<div class="relative w-36 sm:w-48 h-3.5 bg-surface-container-highest rounded-full overflow-hidden border border-outline-variant shadow-inner">
+<!-- Animated Progress Fill with Shimmer -->
+<div class="progress-bar-fill bg-primary h-full rounded-full relative overflow-hidden">
+<div class="shimmer-runner absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Wrapper -->
+<main class="w-full pt-40 bg-surface">
+<div class="max-w-4xl mx-auto px-6 py-8">
+<div class="flex flex-col w-full pb-16">
+<!-- Top Intro & Audio Helper (Stagger 1) -->
+<section class="opacity-0 animate-fadeInUp anim-delay-1 flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
+<div class="space-y-2">
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary-container text-on-secondary-fixed font-label-md text-label-md transition-all duration-200 hover:shadow-xs">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
+</span>
+<span>Step 1 of 4 • Indian Railways (IRCTC) Planner</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">Find your train journey</h1>
+<p class="font-body-xl text-body-xl text-on-surface-variant max-w-2xl">
+              Enter your boarding station, arrival station, travel date, and preferred quota.
+            </p>
+</div>
+<!-- Read Aloud Assistive Control -->
+<div class="shrink-0">
+<button aria-pressed="false" class="group min-h-[56px] px-6 py-3 rounded-full bg-surface-container-high hover:bg-surface-container-highest active:bg-primary-fixed-dim text-on-surface font-label-lg text-label-lg flex items-center gap-3 transition-all duration-200 shadow-sm hover:shadow active:scale-98" id="readAloudBtn" onclick="toggleSpeech()" type="button">
+<span class="material-symbols-outlined text-primary text-[26px] transition-transform duration-200 group-hover:scale-115" id="audioIcon">volume_up</span>
+<span id="audioBtnText">Read this page aloud</span>
+</button>
+</div>
+</section>
+<!-- Main Booking Search Container (Stagger 2) -->
+<section class="opacity-0 animate-fadeInUp anim-delay-2 w-full bg-surface-container-lowest rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-6 sm:p-10 space-y-10 border border-outline-variant/30">
+<!-- Step 1: Origin Station (Bengaluru default) -->
+<div class="space-y-4">
+<div class="flex flex-col gap-1">
+<label class="font-headline-md text-headline-md text-on-surface flex items-center gap-3" for="from-station">
+<span class="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-on-primary font-label-md text-label-md shrink-0 shadow-xs">1</span>
+<span>Where are you leaving from? (Boarding)</span>
+</label>
+<p class="font-body-md text-body-md text-on-surface-variant ml-11">
+                Enter railway station code or city name (e.g. Bengaluru SBC, NDLS, Mumbai CSMT)
+              </p>
+</div>
+<div class="relative ml-0 sm:ml-11 focus-within:ring-4 focus-within:ring-blue-100 focus-within:rounded-xl transition-all duration-200">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-primary transition-transform duration-200">
+<span class="material-symbols-outlined text-[28px]">trip_origin</span>
+</div>
+<input class="w-full min-h-[64px] pl-14 pr-24 rounded-lg bg-surface-container-low text-on-surface font-body-xl text-body-xl border-2 border-transparent focus:border-primary focus:bg-surface-container-lowest focus:outline-none shadow-inner transition-all duration-200" id="from-station" name="from_station" placeholder="Type boarding station or code..." type="text" value="Bengaluru City Jn (SBC)"/>
+<button aria-label="Clear departure station field" class="absolute inset-y-2 right-2 px-4 rounded-lg bg-surface-container hover:bg-surface-container-high active:scale-95 text-on-surface font-label-md text-label-md transition-all duration-150 flex items-center gap-1 shadow-xs" onclick="document.getElementById('from-station').value = ''; document.getElementById('from-station').focus();" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+<span>Clear</span>
+</button>
+</div>
+<!-- Quick Pick Suggestions with Tactile Lift -->
+<div class="ml-0 sm:ml-11 flex flex-wrap items-center gap-2 pt-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant mr-1">Popular stations:</span>
+<button class="min-h-[48px] px-4 py-2 rounded-lg bg-surface-container hover:bg-secondary-container active:scale-95 hover:-translate-y-0.5 hover:shadow-sm text-on-surface font-label-md text-label-md transition-all duration-200" onclick="setStation('from-station', 'Bengaluru City Jn (SBC)')" type="button">
+                Bengaluru (SBC)
+              </button>
+<button class="min-h-[48px] px-4 py-2 rounded-lg bg-surface-container hover:bg-secondary-container active:scale-95 hover:-translate-y-0.5 hover:shadow-sm text-on-surface font-label-md text-label-md transition-all duration-200" onclick="setStation('from-station', 'New Delhi (NDLS)')" type="button">
+                New Delhi (NDLS)
+              </button>
+<button class="min-h-[48px] px-4 py-2 rounded-lg bg-surface-container hover:bg-secondary-container active:scale-95 hover:-translate-y-0.5 hover:shadow-sm text-on-surface font-label-md text-label-md transition-all duration-200" onclick="setStation('from-station', 'Mumbai CSMT')" type="button">
+                Mumbai CSMT
+              </button>
+<button class="min-h-[48px] px-4 py-2 rounded-lg bg-surface-container hover:bg-secondary-container active:scale-95 hover:-translate-y-0.5 hover:shadow-sm text-on-surface font-label-md text-label-md transition-all duration-200" onclick="setStation('from-station', 'Chennai Central (MAS)')" type="button">
+                Chennai Central (MAS)
+              </button>
+</div>
+</div>
+<!-- Swap Stations Accessible Bar with 180° Spin -->
+<div class="flex justify-center sm:justify-start sm:ml-11 py-1">
+<button aria-label="Swap departure and arrival stations" class="group min-h-[56px] px-6 py-2 rounded-xl bg-surface-container-high hover:bg-surface-container-highest hover:-translate-y-0.5 hover:shadow active:scale-95 text-primary font-label-lg text-label-lg flex items-center gap-3 transition-all duration-200 shadow-sm" id="swapBtn" onclick="swapStations()" type="button">
+<span class="material-symbols-outlined text-[26px] transition-transform duration-300 ease-in-out group-hover:rotate-180" id="swapIcon">swap_vert</span>
+<span>Swap departure &amp; destination stations</span>
+</button>
+</div>
+<!-- Step 2: Destination Station (New Delhi default/placeholder) -->
+<div class="space-y-4">
+<div class="flex flex-col gap-1">
+<label class="font-headline-md text-headline-md text-on-surface flex items-center gap-3" for="to-station">
+<span class="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-on-primary font-label-md text-label-md shrink-0 shadow-xs">2</span>
+<span>Where are you going to? (Destination)</span>
+</label>
+<p class="font-body-md text-body-md text-on-surface-variant ml-11">
+                Enter arrival destination station code or city name
+              </p>
+</div>
+<div class="relative ml-0 sm:ml-11 focus-within:ring-4 focus-within:ring-blue-100 focus-within:rounded-xl transition-all duration-200">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-primary">
+<span class="material-symbols-outlined text-[28px]">location_on</span>
+</div>
+<input class="w-full min-h-[64px] pl-14 pr-24 rounded-lg bg-surface-container-low text-on-surface font-body-xl text-body-xl border-2 border-transparent focus:border-primary focus:bg-surface-container-lowest focus:outline-none shadow-inner transition-all duration-200" id="to-station" name="to_station" placeholder="New Delhi (NDLS)" type="text" value="New Delhi (NDLS)"/>
+<button aria-label="Clear destination station field" class="absolute inset-y-2 right-2 px-4 rounded-lg bg-surface-container hover:bg-surface-container-high active:scale-95 text-on-surface font-label-md text-label-md transition-all duration-150 flex items-center gap-1 shadow-xs" onclick="document.getElementById('to-station').value = ''; document.getElementById('to-station').focus();" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+<span>Clear</span>
+</button>
+</div>
+<!-- Quick Pick Suggestions with Tactile Lift -->
+<div class="ml-0 sm:ml-11 flex flex-wrap items-center gap-2 pt-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant mr-1">Popular arrivals:</span>
+<button class="min-h-[48px] px-4 py-2 rounded-lg bg-surface-container hover:bg-secondary-container active:scale-95 hover:-translate-y-0.5 hover:shadow-sm text-on-surface font-label-md text-label-md transition-all duration-200" onclick="setStation('to-station', 'New Delhi (NDLS)')" type="button">
+                New Delhi (NDLS)
+              </button>
+<button class="min-h-[48px] px-4 py-2 rounded-lg bg-surface-container hover:bg-secondary-container active:scale-95 hover:-translate-y-0.5 hover:shadow-sm text-on-surface font-label-md text-label-md transition-all duration-200" onclick="setStation('to-station', 'Howrah Jn (HWH)')" type="button">
+                Howrah Jn (HWH)
+              </button>
+<button class="min-h-[48px] px-4 py-2 rounded-lg bg-surface-container hover:bg-secondary-container active:scale-95 hover:-translate-y-0.5 hover:shadow-sm text-on-surface font-label-md text-label-md transition-all duration-200" onclick="setStation('to-station', 'Hyderabad (HYB)')" type="button">
+                Hyderabad (HYB)
+              </button>
+<button class="min-h-[48px] px-4 py-2 rounded-lg bg-surface-container hover:bg-secondary-container active:scale-95 hover:-translate-y-0.5 hover:shadow-sm text-on-surface font-label-md text-label-md transition-all duration-200" onclick="setStation('to-station', 'Chennai (MAS)')" type="button">
+                Chennai (MAS)
+              </button>
+</div>
+</div>
+<!-- Step 3: Date of Travel with DD-MM-YYYY format -->
+<div class="space-y-4 pt-2">
+<div class="flex flex-col gap-1">
+<label class="font-headline-md text-headline-md text-on-surface flex items-center gap-3" for="travel-date-display">
+<span class="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-on-primary font-label-md text-label-md shrink-0 shadow-xs">3</span>
+<span>When would you like to travel?</span>
+</label>
+<p class="font-body-md text-body-md text-on-surface-variant ml-11">
+                Select your journey date (shown as DD-MM-YYYY Day)
+              </p>
+</div>
+<div class="ml-0 sm:ml-11 flex flex-col md:flex-row gap-4 items-stretch md:items-center">
+<div class="relative flex-1 focus-within:ring-4 focus-within:ring-blue-100 focus-within:rounded-xl transition-all duration-200">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-primary">
+<span class="material-symbols-outlined text-[28px]">calendar_today</span>
+</div>
+<input class="w-full min-h-[64px] pl-14 pr-4 rounded-lg bg-surface-container-low text-on-surface font-body-xl text-body-xl font-bold border-2 border-transparent focus:border-primary focus:bg-surface-container-lowest focus:outline-none shadow-inner cursor-pointer transition-all duration-200 hover:bg-surface-container" id="travel-date-display" name="travel_date_display" onclick="openDatePicker()" readonly="" type="text" value="12-11-2026 (Thu)"/>
+<!-- Hidden real date input for system picker -->
+<input class="sr-only" id="travel-date-picker" onchange="syncDateFromPicker(this.value)" type="date"/>
+</div>
+<!-- Quick Select Dates with Scale Feedback -->
+<div class="flex flex-wrap items-center gap-2">
+<button class="min-h-[56px] px-5 rounded-lg bg-surface-container hover:bg-surface-container-high hover:-translate-y-0.5 active:scale-95 active:bg-secondary-container font-label-md text-label-md text-on-surface transition-all duration-200 flex items-center gap-1.5 shadow-xs hover:shadow" onclick="setQuickDate(0)" type="button">
+<span class="material-symbols-outlined text-primary text-[20px]">today</span>
+<span>Today</span>
+</button>
+<button class="min-h-[56px] px-5 rounded-lg bg-surface-container hover:bg-surface-container-high hover:-translate-y-0.5 active:scale-95 active:bg-secondary-container font-label-md text-label-md text-on-surface transition-all duration-200 flex items-center gap-1.5 shadow-xs hover:shadow" onclick="setQuickDate(1)" type="button">
+<span class="material-symbols-outlined text-primary text-[20px]">event_upcoming</span>
+<span>Tomorrow</span>
+</button>
+<button class="min-h-[56px] px-5 rounded-lg bg-surface-container hover:bg-surface-container-high hover:-translate-y-0.5 active:scale-95 active:bg-secondary-container font-label-md text-label-md text-on-surface transition-all duration-200 flex items-center gap-1.5 shadow-xs hover:shadow" onclick="setNextMonday()" type="button">
+<span class="material-symbols-outlined text-primary text-[20px]">date_range</span>
+<span>Next Monday</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Step 4: Quota & Class Selection (Indian Railways) -->
+<div class="space-y-4 pt-2">
+<div class="flex flex-col gap-1">
+<label class="font-headline-md text-headline-md text-on-surface flex items-center gap-3">
+<span class="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-on-primary font-label-md text-label-md shrink-0 shadow-xs">4</span>
+<span>Select Booking Quota &amp; Travel Class</span>
+</label>
+<p class="font-body-md text-body-md text-on-surface-variant ml-11">
+                Choose your concession or priority category. Senior Citizen automatically prioritises lower berths.
+              </p>
+</div>
+<div class="ml-0 sm:ml-11 grid grid-cols-1 md:grid-cols-2 gap-5">
+<!-- Quota Dropdown -->
+<div class="space-y-1.5">
+<label class="font-label-md text-label-md text-on-surface font-bold block" for="quota-select">
+                  Booking Quota
+                </label>
+<div class="relative focus-within:ring-4 focus-within:ring-blue-100 focus-within:rounded-xl transition-all duration-200">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-primary">
+<span class="material-symbols-outlined text-[26px]">elderly</span>
+</div>
+<select class="w-full min-h-[64px] pl-14 pr-10 rounded-lg bg-surface-container-low text-on-surface font-body-lg text-body-lg font-bold border-2 border-transparent focus:border-primary focus:bg-surface-container-lowest focus:outline-none shadow-inner appearance-none cursor-pointer transition-all duration-200 hover:bg-surface-container" id="quota-select" name="quota">
+<option selected="" value="SS">Senior Citizen / Lower Berth</option>
+<option value="GN">General (GN)</option>
+<option value="LD">Ladies (LD)</option>
+<option value="CK">Tatkal (CK)</option>
+<option value="PT">Premium Tatkal (PT)</option>
+</select>
+<div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-[28px]">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Class Selection Filter -->
+<div class="space-y-1.5">
+<label class="font-label-md text-label-md text-on-surface font-bold block" for="class-select">
+                  Travel Class
+                </label>
+<div class="relative focus-within:ring-4 focus-within:ring-blue-100 focus-within:rounded-xl transition-all duration-200">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-primary">
+<span class="material-symbols-outlined text-[26px]">chair</span>
+</div>
+<select class="w-full min-h-[64px] pl-14 pr-10 rounded-lg bg-surface-container-low text-on-surface font-body-lg text-body-lg border-2 border-transparent focus:border-primary focus:bg-surface-container-lowest focus:outline-none shadow-inner appearance-none cursor-pointer transition-all duration-200 hover:bg-surface-container" id="class-select" name="travel_class">
+<option selected="" value="ALL">All Classes (SL, 3A, 2A, 1A, CC, 2S)</option>
+<option value="3A">AC 3 Tier (3A) - Popular</option>
+<option value="2A">AC 2 Tier (2A) - Extra comfort</option>
+<option value="1A">AC 1st Class (1A) - Coupe</option>
+<option value="CC">AC Chair Car (CC)</option>
+<option value="SL">Sleeper (SL)</option>
+<option value="2S">Second Sitting (2S)</option>
+</select>
+<div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-[28px]">expand_more</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Tatkal Advisory Callout -->
+<div class="ml-0 sm:ml-11 p-4 rounded-xl bg-secondary-container/60 border border-primary/20 flex items-start gap-3 transition-colors hover:bg-secondary-container/80">
+<span class="material-symbols-outlined text-primary text-[26px] shrink-0 mt-0.5">info</span>
+<p class="font-body-md text-body-md text-on-secondary-fixed">
+<strong>Tatkal Note:</strong> Tatkal booking opens at <strong>10:00 AM (AC)</strong> and <strong>11:00 AM (Non-AC)</strong>, a day before travel date. Senior citizen lower berth allocation operates across both general &amp; reserved quotas.
+              </p>
+</div>
+</div>
+<!-- Senior Citizen Lower Berth Automatic Priority Card with Smooth Switch -->
+<div class="ml-0 sm:ml-11 p-6 rounded-xl bg-surface-container-low space-y-4 border border-outline-variant/60 transition-all duration-200 hover:border-primary/40 hover:shadow-sm">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center shrink-0 mt-0.5 shadow-xs transition-transform duration-200 hover:scale-105">
+<span class="material-symbols-outlined text-primary text-[28px]">airline_seat_legroom_extra</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Senior Citizen Lower Berth Quota</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    Senior citizen lower berth quota automatically applied. Gives automatic preference to ground-level lower berths for men aged 60+ and women aged 45+ travelling alone or as couples.
+                  </p>
+</div>
+</div>
+<!-- Accessible Large Switch with Soft Dot Transition & Badge Pulse -->
+<label class="group flex items-center gap-3 cursor-pointer shrink-0 select-none bg-surface-container-lowest px-4 py-2.5 rounded-xl shadow-sm border border-outline-variant hover:border-primary transition-all duration-200 active:scale-95">
+<input checked="" class="sr-only peer" id="seniorQuotaToggle" onchange="toggleQuotaBadge(this.checked)" type="checkbox"/>
+<div class="relative w-14 h-8 bg-surface-container-highest rounded-full transition-colors duration-300 peer peer-checked:bg-primary peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/25">
+<span class="absolute top-[4px] left-[4px] bg-white rounded-full h-6 w-6 shadow-md transition-transform duration-300 ease-out peer-checked:translate-x-6"></span>
+</div>
+<span class="font-label-md text-label-md text-on-surface font-bold flex items-center gap-1.5" id="quotaLabel">
+<span class="w-2 h-2 rounded-full bg-tertiary-container animate-pulse" id="quotaPulseDot"></span>
+<span>Quota Applied</span>
+</span>
+</label>
+</div>
+</div>
+<!-- Primary Search Action with Sheen Sweep and Nudge Arrow -->
+<div class="pt-4 ml-0 sm:ml-11">
+<button class="group relative overflow-hidden w-full min-h-[64px] px-8 rounded-xl bg-primary-container hover:bg-primary text-on-primary font-headline-md text-headline-md tracking-wide flex items-center justify-center gap-3 shadow-md hover:shadow-xl active:scale-98 transition-all duration-200 cursor-pointer" onclick="handleSearch()" type="button">
+<div class="sheen-glow"></div>
+<span class="relative z-10">Search Indian Railways Trains</span>
+<span class="material-symbols-outlined text-[32px] relative z-10 transition-transform duration-200 ease-out group-hover:translate-x-2">arrow_forward</span>
+</button>
+<p class="text-center font-body-md text-body-md text-on-surface-variant mt-3">
+              Official Indian Railways timetable. No payment required to browse available berths.
+            </p>
+</div>
+</section>
+<!-- Senior Citizen Concession / Refund Status (TDR) Advisory Card (Stagger 3) -->
+<aside class="opacity-0 animate-fadeInUp anim-delay-3 mt-8 p-6 sm:p-8 rounded-xl bg-surface-container-high flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-sm hover:shadow-md transition-all duration-300 border border-outline-variant/60">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed flex items-center justify-center shrink-0 shadow-xs transition-transform duration-200 hover:rotate-6">
+<span class="material-symbols-outlined text-on-tertiary-fixed text-[28px]">verified_user</span>
+</div>
+<div class="space-y-1">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Senior Citizen Concession / Refund Status (TDR)</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+                Check statutory travel concession guidelines, file an online Ticket Deposit Receipt (TDR) for cancelled/diverted trains, or verify senior passenger coach allotments.
+              </p>
+</div>
+</div>
+<a class="group min-h-[56px] px-6 py-3 rounded-lg bg-surface-container-lowest hover:bg-surface-container hover:-translate-y-0.5 active:scale-95 text-primary font-label-md text-label-md flex items-center gap-2 shrink-0 transition-all duration-200 shadow-sm hover:shadow border border-outline-variant" href="#tdr-status">
+<span>Check refund or concession status</span>
+<span class="material-symbols-outlined text-[20px] transition-transform duration-200 group-hover:translate-x-1">arrow_forward</span>
+</a>
+</aside>
+<!-- Passenger Assurance Section (3 Calm Indian Railways Pillars) (Stagger 4) -->
+<footer class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="opacity-0 animate-fadeInUp anim-delay-4 p-6 rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex items-start gap-4 border border-outline-variant/40">
+<span class="material-symbols-outlined text-primary text-[32px] shrink-0 transition-transform duration-200 hover:scale-110">airline_seat_recline_extra</span>
+<div class="space-y-1">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Free lower berth priority for seniors</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Guaranteed preference for comfortable lower berths without ladder climbing.</p>
+</div>
+</div>
+<div class="opacity-0 animate-fadeInUp anim-delay-5 p-6 rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex items-start gap-4 border border-outline-variant/40">
+<span class="material-symbols-outlined text-primary text-[32px] shrink-0 transition-transform duration-200 hover:scale-110">accessible</span>
+<div class="space-y-1">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Free Wheelchair &amp; Porter meeting</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Request battery-operated cars, station wheelchairs, or Sahayak porter assistance at major junctions.</p>
+</div>
+</div>
+<div class="opacity-0 animate-fadeInUp anim-delay-6 p-6 rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex items-start gap-4 border border-outline-variant/40">
+<span class="material-symbols-outlined text-primary text-[32px] shrink-0 transition-transform duration-200 hover:scale-110">price_check</span>
+<div class="space-y-1">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">No hidden IRCTC booking surcharge</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Standard direct IRCTC fare with clear, upfront breakdown and zero surprise fees.</p>
+</div>
+</div>
+</footer>
+</div>
+</div>
+</main>
+<!-- Floating Railway Help 139 Button with Gentle Ambient Float & Pulsing Status Ping -->
+<aside class="fixed bottom-6 right-6 z-40 float-widget">
+<div class="relative flex flex-col items-end">
+<!-- Options Popup (Toggled via button) -->
+<div class="hidden mb-3 w-80 bg-surface-container-lowest rounded-2xl shadow-2xl border-2 border-primary p-4 space-y-2 text-on-surface transition-all duration-200" id="helpMenu">
+<div class="flex items-center justify-between pb-2 border-b border-outline-variant">
+<span class="font-headline-sm text-headline-sm text-primary flex items-center gap-2">
+<span class="material-symbols-outlined">call</span>
+            Railway Helpline 139
+          </span>
+<button aria-label="Close help menu" class="w-8 h-8 rounded-full bg-surface-container hover:bg-surface-container-high flex items-center justify-center transition-transform hover:scale-105 active:scale-95" onclick="toggleHelpModal()">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Official 24x7 Indian Railways senior assistance:</p>
+<div class="space-y-2 pt-1">
+<a class="w-full min-h-[52px] px-4 py-2.5 rounded-xl bg-primary text-on-primary font-label-md text-label-md flex items-center gap-3 hover:bg-primary-container transition-all hover:translate-x-1" href="tel:139">
+<span class="material-symbols-outlined text-[24px]">call</span>
+<span class="font-bold">Call Railway helpline 139</span>
+</a>
+<a class="w-full min-h-[52px] px-4 py-2.5 rounded-xl bg-surface-container-low hover:bg-surface-container font-label-md text-label-md flex items-center gap-3 border border-outline-variant transition-all hover:translate-x-1" href="#tdr-help" onclick="alert('Opening TDR Refund &amp; Grievance desk...'); toggleHelpModal();">
+<span class="material-symbols-outlined text-primary text-[24px]">receipt_long</span>
+<span>Raise a refund or dispute (TDR)</span>
+</a>
+<a class="w-full min-h-[52px] px-4 py-2.5 rounded-xl bg-surface-container-low hover:bg-surface-container font-label-md text-label-md flex items-center gap-3 border border-outline-variant transition-all hover:translate-x-1" href="#pnr-help" onclick="checkPnrPrompt(); toggleHelpModal();">
+<span class="material-symbols-outlined text-primary text-[24px]">confirmation_number</span>
+<span>Check PNR status</span>
+</a>
+</div>
+</div>
+<!-- Main Trigger Button with Pulse Ping -->
+<button aria-expanded="false" aria-haspopup="dialog" class="group relative min-h-[64px] px-6 py-3 flex items-center gap-3 bg-primary-container hover:bg-primary text-on-primary rounded-full shadow-[0_8px_24px_rgba(0,0,0,0.24)] active:scale-95 transition-all duration-200 border-2 border-surface-container-lowest" id="helpMainBtn" onclick="toggleHelpModal()">
+<!-- Subtle ping aura ring -->
+<span class="absolute -top-1 -right-1 flex h-4 w-4">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary-fixed-dim opacity-75"></span>
+<span class="relative inline-flex rounded-full h-4 w-4 bg-tertiary-fixed border-2 border-primary-container"></span>
+</span>
+<span class="material-symbols-outlined text-[30px] transition-transform duration-200 group-hover:scale-110">support_agent</span>
+<div class="flex flex-col text-left">
+<span class="font-label-lg text-label-lg leading-tight text-on-primary font-bold">Railway Help 139</span>
+<span class="font-label-sm text-label-sm text-on-primary-container">Tap for 139 Call, TDR &amp; PNR</span>
+</div>
+</button>
+</div>
+</aside>
+<!-- Global Footer -->
+<footer class="w-full bg-surface-container-lowest border-t-2 border-outline-variant py-10">
+<div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="flex flex-col items-center md:items-start gap-1">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">EasyRail • Indian Railways Partner</span>
+<p class="font-body-md text-body-md text-on-surface-variant">Reassuring, accessible, and simple train booking for senior citizens across India.</p>
+</div>
+<div class="flex flex-wrap items-center justify-center gap-6 font-label-md text-label-md text-on-surface-variant">
+<a class="hover:text-primary hover:underline transition-colors" href="#">IRCTC Help Center</a>
+<a class="hover:text-primary hover:underline transition-colors" href="#">Senior Citizen Quotas</a>
+<a class="hover:text-primary hover:underline transition-colors" href="#">Station Wheelchairs (139)</a>
+<a class="hover:text-primary hover:underline transition-colors" href="#">File TDR / Refund</a>
+<a class="hover:text-primary hover:underline transition-colors" href="#">Privacy &amp; Terms</a>
+</div>
+</div>
+</footer>
+<!-- Interactivity Scripts -->
+<script>
+    let currentLang = 'en';
+
+    function formatDateDisplay(d) {
+      const day = String(d.getDate()).padStart(2, '0');
+      const month = String(d.getMonth() + 1).padStart(2, '0');
+      const year = d.getFullYear();
+      const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+      const dayName = weekdays[d.getDay()];
+      return `${day}-${month}-${year} (${dayName})`;
+    }
+
+    function setStation(inputId, name) {
+      const el = document.getElementById(inputId);
+      if (el) {
+        el.value = name;
+        el.classList.add('bg-secondary-container', 'scale-[1.01]');
+        setTimeout(() => el.classList.remove('bg-secondary-container', 'scale-[1.01]'), 350);
+      }
+    }
+
+    function swapStations() {
+      const fromEl = document.getElementById('from-station');
+      const toEl = document.getElementById('to-station');
+      if (fromEl && toEl) {
+        const temp = fromEl.value;
+        fromEl.value = toEl.value;
+        toEl.value = temp;
+
+        const swapIcon = document.getElementById('swapIcon');
+        if (swapIcon) {
+          swapIcon.classList.add('rotate-180');
+          setTimeout(() => swapIcon.classList.remove('rotate-180'), 350);
+        }
+
+        const btn = document.getElementById('swapBtn');
+        if (btn) {
+          btn.classList.add('bg-primary-fixed');
+          setTimeout(() => btn.classList.remove('bg-primary-fixed'), 300);
+        }
+      }
+    }
+
+    function openDatePicker() {
+      const picker = document.getElementById('travel-date-picker');
+      if (picker && picker.showPicker) {
+        picker.showPicker();
+      } else if (picker) {
+        picker.click();
+      }
+    }
+
+    function syncDateFromPicker(val) {
+      if (!val) return;
+      const parts = val.split('-');
+      const d = new Date(parts[0], parts[1] - 1, parts[2]);
+      const display = document.getElementById('travel-date-display');
+      if (display) {
+        display.value = formatDateDisplay(d);
+        display.classList.add('bg-secondary-container');
+        setTimeout(() => display.classList.remove('bg-secondary-container'), 300);
+      }
+    }
+
+    function setQuickDate(offsetDays) {
+      const d = new Date();
+      d.setDate(d.getDate() + offsetDays);
+      const display = document.getElementById('travel-date-display');
+      if (display) {
+        display.value = formatDateDisplay(d);
+        display.classList.add('bg-secondary-container');
+        setTimeout(() => display.classList.remove('bg-secondary-container'), 300);
+      }
+      const picker = document.getElementById('travel-date-picker');
+      if (picker) {
+        picker.value = d.toISOString().split('T')[0];
+      }
+    }
+
+    function setNextMonday() {
+      const d = new Date();
+      const day = d.getDay();
+      const diff = (7 - day + 1) % 7 || 7;
+      d.setDate(d.getDate() + diff);
+      const display = document.getElementById('travel-date-display');
+      if (display) {
+        display.value = formatDateDisplay(d);
+        display.classList.add('bg-secondary-container');
+        setTimeout(() => display.classList.remove('bg-secondary-container'), 300);
+      }
+      const picker = document.getElementById('travel-date-picker');
+      if (picker) {
+        picker.value = d.toISOString().split('T')[0];
+      }
+    }
+
+    function toggleQuotaBadge(checked) {
+      const label = document.getElementById('quotaLabel');
+      const dot = document.getElementById('quotaPulseDot');
+      const quotaSelect = document.getElementById('quota-select');
+      if (checked) {
+        label.innerHTML = `<span class="w-2 h-2 rounded-full bg-tertiary-container animate-pulse" id="quotaPulseDot"></span><span>Quota Applied</span>`;
+        if (quotaSelect) quotaSelect.value = 'SS';
+      } else {
+        label.innerHTML = `<span class="w-2 h-2 rounded-full bg-outline"></span><span>Standard Quota</span>`;
+        if (quotaSelect) quotaSelect.value = 'GN';
+      }
+    }
+
+    function toggleLanguage() {
+      const langBtn = document.getElementById('langText');
+      if (currentLang === 'en') {
+        currentLang = 'hi';
+        langBtn.textContent = 'हिं / EN';
+        alert('भाषा हिंदी में बदली गई (Hindi language active).');
+      } else {
+        currentLang = 'en';
+        langBtn.textContent = 'EN / हिं';
+        alert('Language switched back to English.');
+      }
+    }
+
+    function toggleHelpModal() {
+      const menu = document.getElementById('helpMenu');
+      const btn = document.getElementById('helpMainBtn');
+      if (menu) {
+        const isHidden = menu.classList.contains('hidden');
+        if (isHidden) {
+          menu.classList.remove('hidden');
+          btn.setAttribute('aria-expanded', 'true');
+        } else {
+          menu.classList.add('hidden');
+          btn.setAttribute('aria-expanded', 'false');
+        }
+      }
+    }
+
+    function checkPnrPrompt() {
+      const pnr = prompt('Enter your 10-digit Indian Railways PNR number:');
+      if (pnr && pnr.trim().length === 10) {
+        alert(`Fetching status for PNR: ${pnr.trim()}... Confirmed Berth Lower (B3-21)`);
+      } else if (pnr) {
+        alert('Please enter a valid 10-digit PNR number.');
+      }
+    }
+
+    function toggleSpeech() {
+      const btn = document.getElementById('readAloudBtn');
+      const icon = document.getElementById('audioIcon');
+      const text = document.getElementById('audioBtnText');
+      
+      if (!('speechSynthesis' in window)) {
+        alert("Audio narration is not supported in this browser.");
+        return;
+      }
+
+      if (window.speechSynthesis.speaking) {
+        window.speechSynthesis.cancel();
+        icon.textContent = 'volume_up';
+        text.textContent = 'Read this page aloud';
+        btn.setAttribute('aria-pressed', 'false');
+      } else {
+        const fromStation = document.getElementById('from-station').value;
+        const toStation = document.getElementById('to-station').value;
+        const travelDate = document.getElementById('travel-date-display').value;
+        const message = `Welcome to EasyRail Indian Railways. Step 1 of 4: Search trains. Departure station: ${fromStation}. Destination station: ${toStation}. Journey date: ${travelDate}. Senior citizen lower berth quota is currently applied. For immediate phone assistance, dial railway helpline 139 toll free. Press the large blue button to view available trains.`;
+        const utter = new SpeechSynthesisUtterance(message);
+        utter.rate = 0.9;
+        utter.onend = () => {
+          icon.textContent = 'volume_up';
+          text.textContent = 'Read this page aloud';
+          btn.setAttribute('aria-pressed', 'false');
+        };
+        window.speechSynthesis.speak(utter);
+        icon.textContent = 'pause_circle';
+        text.textContent = 'Stop reading';
+        btn.setAttribute('aria-pressed', 'true');
+      }
+    }
+
+    function handleSearch() {
+      const from = document.getElementById('from-station').value.trim();
+      const to = document.getElementById('to-station').value.trim();
+      const quota = document.getElementById('quota-select').value;
+      const travelClass = document.getElementById('class-select').value;
+      const travelDate = document.getElementById('travel-date-display').value;
+
+      if (!from) {
+        alert("Please enter your boarding station.");
+        document.getElementById('from-station').focus();
+        return;
+      }
+      if (!to) {
+        alert("Please enter your destination station.");
+        document.getElementById('to-station').focus();
+        return;
+      }
+
+      const searchBtn = event.currentTarget;
+      searchBtn.innerHTML = `
+        <span class="material-symbols-outlined animate-spin text-[30px]">progress_activity</span>
+        <span>Connecting to Indian Railways...</span>
+      `;
+      setTimeout(() => {
+        alert(`Proceeding to Step 2: Available trains from ${from} to ${to} on ${travelDate} (Quota: ${quota}, Class: ${travelClass})`);
+        searchBtn.innerHTML = `
+          <div class="sheen-glow"></div>
+          <span class="relative z-10">Search Indian Railways Trains</span>
+          <span class="material-symbols-outlined text-[32px] relative z-10 transition-transform duration-200 ease-out group-hover:translate-x-2">arrow_forward</span>
+        `;
+      }, 750);
+    }
+  </script>
+</body></html>
